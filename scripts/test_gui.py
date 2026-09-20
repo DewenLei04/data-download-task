@@ -9,6 +9,7 @@ import hashlib
 import importlib.util
 import json
 import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
@@ -194,6 +195,8 @@ def main():
         assert not external_requests, external_requests
         browser.close()
     report = {
+        "base_url": base,
+        "tested_at": datetime.now(timezone.utc).isoformat(),
         "test_kind": "host Chromium GUI; not an ALE sandbox/model run",
         "passed": True,
         "datasets": results,

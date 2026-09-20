@@ -102,3 +102,18 @@ def test_json_catalog_search_without_javascript(client):
         'data-search="airlines 2015 airplane airports travel flights delays transportation json" hidden'
         in miss
     )
+
+
+def test_json_detail_without_cdn_files_in_function(client, monkeypatch):
+    read_text = Path.read_text
+
+    def function_read(path, *args, **kwargs):
+        if path.is_relative_to(ROOT / "website/public"):
+            raise FileNotFoundError("CDN assets are not part of the function filesystem")
+        return read_text(path, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "read_text", function_read)
+    response = client.get("/v1/corgis/datasets/airlines-2015")
+    assert response.status_code == 200
+    assert 'aria-label="Download JSON"' in response.text
+    assert "2015/01" in response.text

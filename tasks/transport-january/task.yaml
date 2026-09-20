@@ -16,7 +16,7 @@ timeouts:
 artifacts:
 - /home/user/output
 params:
-  site_url: https://data-download-task.example.invalid
+  site_url: https://data-download-task.vercel.app
 metadata:
   tags:
   - data-download

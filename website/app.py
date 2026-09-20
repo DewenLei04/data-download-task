@@ -76,12 +76,6 @@ def detail(site, dataset_id):
         abort(404)
     if site == "corgis":
         fields = json.loads((ROOT / "corgis-fields.json").read_text())
-        example = json.loads((ROOT / "public" / item["url"].lstrip("/")).read_text())[0]
-        for field in fields:
-            value = example
-            for key in field["keys"]:
-                value = value[key]
-            field["example"] = json.dumps(value)
         return render_template(
             "corgis-detail.html",
             theme=site,

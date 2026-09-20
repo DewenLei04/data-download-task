@@ -31,6 +31,15 @@ def release():
         shutil.copyfile(folder / ("synthetic-dirty" + ext), dest)
         if key == AIRLINES_KEY:
             rows = json.loads(dest.read_text())
+            # CDN files need not exist in Vercel's Python function filesystem.
+            fields_path = ROOT / "website/corgis-fields.json"
+            fields = json.loads(fields_path.read_text())
+            for field in fields:
+                value = rows[0]
+                for name in field["keys"]:
+                    value = value[name]
+                field["example"] = json.dumps(value)
+            write_json(fields_path, fields)
             catalog.append(
                 dict(
                     id=key,

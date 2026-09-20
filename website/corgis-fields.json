@@ -5,7 +5,8 @@
       "Code"
     ],
     "type": "String",
-    "description": "Three-letter IATA airport code. Codes identify the same airport across the twelve monthly records."
+    "description": "Three-letter IATA airport code. Codes identify the same airport across the twelve monthly records.",
+    "example": "\"ATL\""
   },
   {
     "keys": [
@@ -13,7 +14,8 @@
       "Name"
     ],
     "type": "String",
-    "description": "Historical airport name and location associated with the code. The reference labels reflect the 2015 reporting period."
+    "description": "Historical airport name and location associated with the code. The reference labels reflect the 2015 reporting period.",
+    "example": "\"Atlanta, GA: Hartsfield-Jackson Atlanta International\""
   },
   {
     "keys": [
@@ -21,7 +23,8 @@
       "Label"
     ],
     "type": "String",
-    "description": "Reporting period written as YYYY/MM. The records are arranged by month, then by airport code within each month."
+    "description": "Reporting period written as YYYY/MM. The records are arranged by month, then by airport code within each month.",
+    "example": "\"2015/01\""
   },
   {
     "keys": [
@@ -29,7 +32,8 @@
       "Month"
     ],
     "type": "Integer",
-    "description": "Calendar month number, from 1 for January through 12 for December."
+    "description": "Calendar month number, from 1 for January through 12 for December.",
+    "example": "1"
   },
   {
     "keys": [
@@ -37,7 +41,8 @@
       "Month Name"
     ],
     "type": "String",
-    "description": "English name of the reporting month, corresponding to the month number and period label."
+    "description": "English name of the reporting month, corresponding to the month number and period label.",
+    "example": "\"January\""
   },
   {
     "keys": [
@@ -45,7 +50,8 @@
       "Year"
     ],
     "type": "Integer",
-    "description": "Four-digit reporting year. This release covers January through December 2015."
+    "description": "Four-digit reporting year. This release covers January through December 2015.",
+    "example": "2015"
   },
   {
     "keys": [
@@ -54,7 +60,8 @@
       "Carrier"
     ],
     "type": "Integer",
-    "description": "Monthly number of delays attributed to carrier operations, such as crew, maintenance or aircraft servicing. Counts summarize the airport-month and retain the reference export\u2019s integer representation."
+    "description": "Monthly number of delays attributed to carrier operations, such as crew, maintenance or aircraft servicing. Counts summarize the airport-month and retain the reference export’s integer representation.",
+    "example": "1316"
   },
   {
     "keys": [
@@ -63,7 +70,8 @@
       "Late Aircraft"
     ],
     "type": "Integer",
-    "description": "Monthly number of delays attributed to the late arrival of an aircraft from its previous flight. Counts summarize the airport-month and retain the reference export\u2019s integer representation."
+    "description": "Monthly number of delays attributed to the late arrival of an aircraft from its previous flight. Counts summarize the airport-month and retain the reference export’s integer representation.",
+    "example": "1615"
   },
   {
     "keys": [
@@ -72,7 +80,8 @@
       "National Aviation System"
     ],
     "type": "Integer",
-    "description": "Monthly number of delays attributed to national airspace and airport operations, including traffic management and congestion. Counts summarize the airport-month and retain the reference export\u2019s integer representation."
+    "description": "Monthly number of delays attributed to national airspace and airport operations, including traffic management and congestion. Counts summarize the airport-month and retain the reference export’s integer representation.",
+    "example": "1537"
   },
   {
     "keys": [
@@ -81,7 +90,8 @@
       "Security"
     ],
     "type": "Integer",
-    "description": "Monthly number of delays attributed to security screening or a security-related interruption. Counts summarize the airport-month and retain the reference export\u2019s integer representation."
+    "description": "Monthly number of delays attributed to security screening or a security-related interruption. Counts summarize the airport-month and retain the reference export’s integer representation.",
+    "example": "5"
   },
   {
     "keys": [
@@ -90,7 +100,8 @@
       "Weather"
     ],
     "type": "Integer",
-    "description": "Monthly number of delays attributed to weather-related operational disruption. Counts summarize the airport-month and retain the reference export\u2019s integer representation."
+    "description": "Monthly number of delays attributed to weather-related operational disruption. Counts summarize the airport-month and retain the reference export’s integer representation.",
+    "example": "129"
   },
   {
     "keys": [
@@ -99,7 +110,8 @@
       "Names"
     ],
     "type": "String",
-    "description": "Comma-separated roster of carriers represented in this airport\u2019s monthly statistics. Names use the historical reference vocabulary."
+    "description": "Comma-separated roster of carriers represented in this airport’s monthly statistics. Names use the historical reference vocabulary.",
+    "example": "\"American Airlines Inc.,Alaska Airlines Inc.,Delta Air Lines Inc.,ExpressJet Airlines Inc.,Frontier Airlines Inc.,Envoy Air,Spirit Air Lines,SkyWest Airlines Inc.,United Air Lines Inc.,US Airways Inc.,Southwest Airlines Co.\""
   },
   {
     "keys": [
@@ -108,7 +120,8 @@
       "Total"
     ],
     "type": "Integer",
-    "description": "Number of carrier names in the reporting roster for this airport and month."
+    "description": "Number of carrier names in the reporting roster for this airport and month.",
+    "example": "11"
   },
   {
     "keys": [
@@ -117,7 +130,8 @@
       "Cancelled"
     ],
     "type": "Integer",
-    "description": "Monthly count of flights recorded as cancelled at this airport."
+    "description": "Monthly count of flights recorded as cancelled at this airport.",
+    "example": "291"
   },
   {
     "keys": [
@@ -126,7 +140,8 @@
       "Delayed"
     ],
     "type": "Integer",
-    "description": "Monthly count of flights recorded as delayed. Cause-specific counts may have small rounding differences when compared with this figure."
+    "description": "Monthly count of flights recorded as delayed. Cause-specific counts may have small rounding differences when compared with this figure.",
+    "example": "4603"
   },
   {
     "keys": [
@@ -135,7 +150,8 @@
       "Diverted"
     ],
     "type": "Integer",
-    "description": "Monthly count of flights recorded as diverted from their scheduled destination."
+    "description": "Monthly count of flights recorded as diverted from their scheduled destination.",
+    "example": "30"
   },
   {
     "keys": [
@@ -144,7 +160,8 @@
       "On Time"
     ],
     "type": "Integer",
-    "description": "Monthly count of flights recorded as on time at this airport."
+    "description": "Monthly count of flights recorded as on time at this airport.",
+    "example": "25619"
   },
   {
     "keys": [
@@ -153,7 +170,8 @@
       "Total"
     ],
     "type": "Integer",
-    "description": "Monthly total across the cancelled, delayed, diverted and on-time flight categories."
+    "description": "Monthly total across the cancelled, delayed, diverted and on-time flight categories.",
+    "example": "30543"
   },
   {
     "keys": [
@@ -162,7 +180,8 @@
       "Carrier"
     ],
     "type": "Integer",
-    "description": "Monthly delay duration in minutes attributed to carrier operations, such as crew, maintenance or aircraft servicing. This is a duration total, rather than the number of affected flights."
+    "description": "Monthly delay duration in minutes attributed to carrier operations, such as crew, maintenance or aircraft servicing. This is a duration total, rather than the number of affected flights.",
+    "example": "104462"
   },
   {
     "keys": [
@@ -171,7 +190,8 @@
       "Late Aircraft"
     ],
     "type": "Integer",
-    "description": "Monthly delay duration in minutes attributed to the late arrival of an aircraft from its previous flight. This is a duration total, rather than the number of affected flights."
+    "description": "Monthly delay duration in minutes attributed to the late arrival of an aircraft from its previous flight. This is a duration total, rather than the number of affected flights.",
+    "example": "97811"
   },
   {
     "keys": [
@@ -180,7 +200,8 @@
       "National Aviation System"
     ],
     "type": "Integer",
-    "description": "Monthly delay duration in minutes attributed to national airspace and airport operations, including traffic management and congestion. This is a duration total, rather than the number of affected flights."
+    "description": "Monthly delay duration in minutes attributed to national airspace and airport operations, including traffic management and congestion. This is a duration total, rather than the number of affected flights.",
+    "example": "57915"
   },
   {
     "keys": [
@@ -189,7 +210,8 @@
       "Security"
     ],
     "type": "Integer",
-    "description": "Monthly delay duration in minutes attributed to security screening or a security-related interruption. This is a duration total, rather than the number of affected flights."
+    "description": "Monthly delay duration in minutes attributed to security screening or a security-related interruption. This is a duration total, rather than the number of affected flights.",
+    "example": "314"
   },
   {
     "keys": [
@@ -198,7 +220,8 @@
       "Total"
     ],
     "type": "Integer",
-    "description": "Combined delay duration in minutes across the five reported cause categories."
+    "description": "Combined delay duration in minutes across the five reported cause categories.",
+    "example": "273383"
   },
   {
     "keys": [
@@ -207,6 +230,7 @@
       "Weather"
     ],
     "type": "Integer",
-    "description": "Monthly delay duration in minutes attributed to weather-related operational disruption. This is a duration total, rather than the number of affected flights."
+    "description": "Monthly delay duration in minutes attributed to weather-related operational disruption. This is a duration total, rather than the number of affected flights.",
+    "example": "12881"
   }
 ]
