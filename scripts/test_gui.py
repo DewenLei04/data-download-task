@@ -120,6 +120,37 @@ def main():
         assert "Toronto" in page.locator("tr.station").inner_text()
         page.locator(".gc-menu > summary").click()
         assert page.get_by_role("navigation", name="Collections menu").is_visible()
+        page.goto(base)
+        page.get_by_role("link", name="CORGIS JSON Datasets", exact=True).click()
+        page.screenshot(path=str(out / "corgis-desktop.png"), full_page=True)
+        search = page.get_by_role("searchbox", name="Search:", exact=True)
+        search.fill("unavailable-dataset")
+        assert page.locator("#corgis-empty").is_visible()
+        assert not page.get_by_role("link", name="View Airlines", exact=True).is_visible()
+        search.fill("AIRLINES")
+        page.get_by_role("link", name="View Airlines", exact=True).click()
+        assert page.locator(".corgis-table tbody tr").count() == 24
+        assert page.locator("h1").first.evaluate("el => getComputedStyle(el).fontSize") == "40px"
+        assert page.locator("h1").first.evaluate("el => el.getBoundingClientRect().x") == 15
+        page.screenshot(path=str(out / "corgis-airlines-desktop.png"), full_page=True)
+        item = next(d for d in CATALOG if d["site"] == "corgis")
+        with page.expect_download() as event:
+            page.get_by_role("link", name="Download JSON", exact=True).click()
+        download = event.value
+        content = Path(download.path()).read_bytes()
+        assert download.suggested_filename == item["filename"]
+        assert hashlib.sha256(content).hexdigest() == item["sha256"]
+        rows = json.loads(content)
+        assert len(rows) == 348 and list(rows[0]) == ["Airport", "Time", "Statistics"]
+        download_count += 1
+        results.append(
+            {"id": item["id"], "surface": "JSON catalog search and download link", "passed": True}
+        )
+        # Server-rendered queries remain usable without JavaScript, and clearing a
+        # nonmatching query restores the card through the live filter.
+        page.goto(base + "/v1/corgis?q=missing")
+        page.get_by_role("searchbox", name="Search:", exact=True).fill("")
+        assert page.get_by_role("link", name="View Airlines", exact=True).is_visible()
         # Exercise the actual code shipped in each oracle against the live host site.
         # This does not test sandbox setup, headed execution or ALE's phase orchestration.
         with tempfile.TemporaryDirectory() as temporary:
@@ -146,6 +177,8 @@ def main():
             "/v1/climate",
             "/v1/climate?browse=1",
             "/v1/climate/datasets/toronto-2023",
+            "/v1/corgis",
+            "/v1/corgis/datasets/airlines-2015",
         ]:
             page.goto(base + path)
             assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), path
@@ -153,6 +186,10 @@ def main():
         page.screenshot(path=str(out / "transport-mobile.png"), full_page=True)
         page.goto(base + "/v1/climate")
         page.screenshot(path=str(out / "climate-mobile.png"), full_page=True)
+        page.goto(base + "/v1/corgis")
+        page.screenshot(path=str(out / "corgis-mobile.png"), full_page=True)
+        page.goto(base + "/v1/corgis/datasets/airlines-2015")
+        page.screenshot(path=str(out / "corgis-airlines-mobile.png"), full_page=True)
         assert not errors, errors
         assert not external_requests, external_requests
         browser.close()

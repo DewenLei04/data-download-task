@@ -1,0 +1,25 @@
+{% extends 'base.html' %}{% block content %}
+<div class="corgis-container">
+  <a class="corgis-logo" href="/v1/corgis" aria-label="CORGIS JSON datasets"><img src="/brand/corgis-logo.png" alt="CORGIS Datasets Project"></a>
+  <h1>JSON Datasets</h1>
+  <p class="lead">CORGIS: The Collection of Really Great, Interesting, Situated Datasets</p>
+  <p class="text-muted">Research replica · Newly generated datasets · Based on the CORGIS website</p>
+  <hr>
+  <form action="/v1/corgis" class="corgis-search" role="search">
+    <label for="corgis-search">Search:</label>
+    <div><input id="corgis-search" name="q" value="{{ query }}" placeholder="Keyword or phrase" type="search" autocomplete="off"><button class="sr-only" type="submit">Search datasets</button></div>
+  </form>
+  <hr>
+  <div class="corgis-grid" aria-live="polite">
+  {% for item in entries %}
+    <article class="dataset-card" data-corgis-card data-search="airlines 2015 airplane airports travel flights delays transportation json" {% if item not in items %}hidden{% endif %}>
+      <a class="dataset-picture" href="/v1/corgis/datasets/{{ item.id }}" aria-label="Airlines dataset"><img src="/brand/corgis-airlines.png" alt="Airlines"></a>
+      <h3><a href="/v1/corgis/datasets/{{ item.id }}">Airlines</a></h3>
+      <p>Synthetic monthly flight statistics for 29 US airports in 2015. <a href="/v1/corgis/datasets/{{ item.id }}" aria-label="View Airlines"><em>View</em></a></p>
+      <small>airplane, airports, travel, flights, delays, JSON</small>
+    </article>
+  {% endfor %}
+  </div>
+  <p id="corgis-empty" {% if items %}hidden{% endif %}>No matching datasets. <a href="/v1/corgis">Show all datasets</a></p>
+</div>
+{% endblock %}

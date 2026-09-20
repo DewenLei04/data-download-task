@@ -1,6 +1,6 @@
 # Source and synthesis provenance
 
-Reference retrieval date: 2026-09-19. Exact URLs, byte counts and SHA-256 hashes are in
+Reference retrieval dates: 2026-09-19 (TLC/climate), 2026-09-20 (CORGIS). Exact URLs, byte counts and SHA-256 hashes are in
 [source-snapshots.json](source-snapshots.json). Acquisition is separate from the skill.
 The skill works only on the resulting local input files.
 
@@ -12,6 +12,10 @@ The skill works only on the resulting local input files.
   is claimed. The three public CloudFront Parquet objects downloaded successfully.
 - [ECCC Historical Data](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html):
   station/province/date selection and daily CSV exports. Its HTML is retained privately.
+
+- [CORGIS Airlines JSON](https://corgis-edu.github.io/corgis/json/airlines/):
+  JSON catalog, dataset overview, visible `.json` download and nested-field dictionary.
+  Both catalog and detail reference pages were captured with Chromium.
 
 The interfaces follow the reference page layouts, navigation, typography and colors.
 The Canada header marks and NYC wordmark are stored locally with source attribution;
@@ -28,6 +32,7 @@ for screenshot evidence, exact assets, and the limits of the TLC reference.
 | Green taxi March 2023 | 72,044 | 240 | 4102 | 4 |
 | Toronto International A 2023 | 365 | 365 | 4103 | 3 |
 | Vancouver International A 2023 | 365 | 365 | 4104 | 3 |
+| CORGIS Airlines, complete 2015 panel | 4,408 | 348 | 4105 | 3 |
 
 Traffic sampling first requires the requested pickup month, non-reversed timestamps,
 0 < distance < 100 miles, 0 < fare < 500, and nonzero location codes. From eligible rows,
@@ -56,17 +61,23 @@ jointly. Sparse strata can reuse observed rows, as allowed by the skill contract
 32 Toronto and 27 Vancouver rows overlap exactly with source rows. The collections
 as a whole are materially new; no original source file is served as a download.
 
-Non-exempt changed-value ratios are approximately 51.8%, 52.6%, 52.1%, 63.7% and 64.4%.
+Airlines generation uses two distinct same-airport/quarter donors and a common convex
+weight for all statistical components. Flight totals, delay-minute totals and roster
+counts are derived. Every airport/calendar scaffold remains in source-relative order.
+See [CORGIS JSON details](corgis-json.md) for source anomalies, audit and reproduction.
+
+Non-exempt changed-value ratios are approximately 51.8%, 52.6%, 52.1%, 63.7%, 64.4% and 92.7%.
 All exceed the unchanged 50% skill minimum. Canonical references, calendar coordinates
 and controlled vocabularies have explicit, evidence-backed novelty exemptions.
 Convex mixing compresses extreme tails; these data are for workflow evaluation, not
 scientific conclusions about actual weather or trips.
 
-The selected dirty-record rates are 2% for traffic and 1% for climate, reflecting
+The selected dirty-record rates are 2% for traffic and 1% for climate/airlines, reflecting
 residual errors in curated exports. The skill floors record counts, so actual rates
-are 4/240 = 1.67% and 3/365 = 0.82%, below the 5% cap. Exact corruption values were
-authored after reading all 18 planner-selected records. Traffic errors omit a fee or
+are 4/240 = 1.67% 3/365 = 0.82%, and 3/348 = 0.86%, below the 5% cap. Exact corruption values were
+authored after reading all 21 planner-selected records. Traffic errors omit a fee or
 tip from a total; climate errors mistranscribe a derived heating-degree-day value.
+Airline errors omit cancelled or diverted flights from a total.
 Every targeted record was reviewed, and every untargeted record matches its clean pair.
 
 ## Reproduce and release
@@ -76,6 +87,8 @@ uv run python scripts/acquire_sources.py
 uv run python scripts/generate_data.py
 uv run python scripts/apply_authored_patches.py
 uv run python scripts/audit_data.py
+uv run python scripts/generate_airlines.py prepare
+uv run python scripts/generate_airlines.py apply
 ```
 
 The acquisition script refuses upstream bytes that differ from the pinned snapshots.

@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{{ title }}</title>
   <meta name="description" content="Research replicas of public data websites, serving synthetic datasets.">
-  <link rel="stylesheet" href="/style.css">
+  {% if theme == 'corgis' %}<link rel="stylesheet" href="/corgis.css">{% else %}<link rel="stylesheet" href="/style.css">{% endif %}
   <script src="/interface.js" defer></script>
 </head>
 <body class="{{ theme }}">
@@ -22,13 +22,14 @@
   <div class="gc-menu-line"><div class="gc-width"><details class="gc-menu"><summary>MENU <span aria-hidden="true">⌄</span></summary><nav aria-label="Collections menu"><a href="/">Collections</a><a href="/v1/climate">Historical Data</a><a href="/v1/transport">Transport</a></nav></details></div></div>
   <nav class="gc-width gc-breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/v1/climate">Environment and natural resources</a><span>›</span><a href="/v1/climate">Weather, Climate and Hazard</a><span>›</span><a href="/v1/climate">Past weather and climate</a></nav>
 </header>
-{% else %}
-<header class="directory-header"><div class="gc-width"><a href="/">Data download collections</a><nav aria-label="Main navigation"><a href="/v1/transport">Transport</a><a href="/v1/climate">Climate</a></nav></div></header>
+{% elif theme != 'corgis' %}
+<header class="directory-header"><div class="gc-width"><a href="/">Data download collections</a><nav aria-label="Main navigation"><a href="/v1/transport">Transport</a><a href="/v1/climate">Climate</a><a href="/v1/corgis">JSON Datasets</a></nav></div></header>
 {% endif %}
 <main id="main">{% block content %}{% endblock %}</main>
 {% if theme == 'climate' %}
 <footer class="gc-footer"><div class="gc-footer-context"><div class="gc-width"><h2>Environment and natural resources</h2><div class="footer-links"><a href="/v1/climate">Historical data</a><a href="/v1/climate?browse=1">Available stations</a><a href="/">Data collections</a></div></div></div><div class="gc-footer-main"><div class="gc-width"><h2>About this research website</h2><p>This is an independent replica for data-download research. It is not a Government of Canada service.</p><div class="footer-links"><a href="/v1/transport">Transport data</a><a href="/v1/climate">Climate data</a><a href="/">All collections</a></div></div></div><div class="gc-footer-bottom gc-width"><span>Synthetic observations · Release v1</span><img src="/brand/canada-wordmark.svg" alt="Canada — reference-site wordmark"></div></footer>
 {% elif theme == 'transport' %}
 <footer class="tlc-footer"><div class="tlc-width"><img src="/brand/nyc-logo.svg" alt="NYC — reference-site wordmark"><div><a href="/">Collections</a><a href="/v1/transport">Trip records</a><a href="/v1/climate">Climate data</a><p>Independent research replica. Not an NYC government service. All downloadable observations are synthetic.</p></div></div></footer>
+{% elif theme == 'corgis' %}<footer class="corgis-footer">Independent research replica of the CORGIS Datasets Project · Synthetic data · <a href="/v1/corgis">JSON datasets</a> · <a href="/">All collections</a></footer>
 {% else %}<footer class="gc-width directory-footer">Research replicas · Synthetic datasets · Release v1</footer>{% endif %}
 </body></html>

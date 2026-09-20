@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-19",
+  "date": "2026-09-20",
   "ale_commit": "04b0599928317191ca6557847a456a70ab2d0438",
   "skill": [
     {
@@ -56,21 +56,32 @@
       "changed_value_ratio": 0.6435171385991059,
       "actual_dirty_record_rate": 0.00821917808219178,
       "source_row_overlap": 27
+    },
+    {
+      "dataset": "airlines-2015",
+      "validation_passed": true,
+      "semantic_audit_passed": true,
+      "records": 348,
+      "dirty_records": 3,
+      "dirty_cells": 3,
+      "changed_value_ratio": 0.9274847870182555,
+      "actual_dirty_record_rate": 0.008620689655172414,
+      "source_row_overlap": 0
     }
   ],
   "pytest": {
-    "passed": 19,
+    "passed": 22,
     "failed": 0
   },
   "gui": {
-    "download_events": 23,
+    "download_events": 26,
     "all_hashes_match": true,
     "mobile_overflow": false,
-    "host_oracle_navigation_tasks": 6
+    "host_oracle_navigation_tasks": 7
   },
   "ale_lint": {
     "passed": true,
-    "tasks": 6
+    "tasks": 7
   },
   "ale_validate": {
     "status": "blocked_before_execution",

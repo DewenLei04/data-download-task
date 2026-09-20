@@ -1,4 +1,4 @@
-"""Two reference-style data portals, deployed together as one Flask application."""
+"""Three reference-style data portals, deployed together as one Flask application."""
 
 import json
 from pathlib import Path
@@ -74,7 +74,48 @@ def detail(site, dataset_id):
     item = next((d for d in CATALOG if d["id"] == dataset_id and d["site"] == site), None)
     if item is None:
         abort(404)
+    if site == "corgis":
+        fields = json.loads((ROOT / "corgis-fields.json").read_text())
+        example = json.loads((ROOT / "public" / item["url"].lstrip("/")).read_text())[0]
+        for field in fields:
+            value = example
+            for key in field["keys"]:
+                value = value[key]
+            field["example"] = json.dumps(value)
+        return render_template(
+            "corgis-detail.html",
+            theme=site,
+            title="Airlines JSON File · Research replica",
+            item=item,
+            fields=fields,
+        )
     return render_template("detail.html", theme=site, title=item["title"], item=item)
+
+
+@app.get("/v1/corgis")
+def corgis():
+    query = request.args.get("q", "").strip()
+    entries = [d for d in CATALOG if d["site"] == "corgis"]
+    items = [
+        d
+        for d in CATALOG
+        if d["site"] == "corgis"
+        and query.casefold()
+        in (
+            d["title"]
+            + " "
+            + d["period"]
+            + " airplane airports travel flights delays transportation JSON"
+        ).casefold()
+    ]
+    return render_template(
+        "corgis.html",
+        theme="corgis",
+        title="JSON Datasets · Research replica",
+        items=items,
+        entries=entries,
+        query=query,
+    )
 
 
 @app.get("/downloads/v1/<filename>")

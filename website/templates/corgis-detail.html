@@ -1,0 +1,19 @@
+{% extends 'base.html' %}{% block content %}
+<div class="corgis-container">
+  <h1>Airlines JSON File</h1>
+  <p class="lead">From the CORGIS Dataset Project · Research replica</p>
+  <p class="text-muted">Synthetic dataset for download research<br>Version 1.0 · January–December 2015 · {{ item.rows }} airport-month records<br>Tags: airplane, airports, travel, plane, air, flights, delays, national, united states, transportation</p>
+  <h1>Overview</h1>
+  <p>Monthly flight statistics for 29 US airports, with nested airport, time, carrier, flight outcome and delay information. The 2015 observations are newly generated research data, not official measurements. Each record preserves the reference dataset’s JSON structure.</p>
+  <h1>Download</h1>
+  <p>Download the following file:</p>
+  <ul><li><a href="{{ item.url }}" download="{{ item.filename }}" aria-label="Download JSON">{{ item.filename }} <svg class="download-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 2h4v11l4-4 3 3-9 9-9-9 3-3 4 4V2ZM2 21h20v3H2z"/></svg></a> <span class="text-muted">JSON · {{ item.rows }} records · {{ '%.1f'|format(item.bytes / 1024) }} KB</span></li></ul>
+  <h1>Key Descriptions</h1>
+  <div class="corgis-table-wrap" role="region" aria-label="JSON field descriptions" tabindex="0">
+  <table class="corgis-table">
+    <colgroup><col class="key-col"><col class="type-col"><col class="comment-col"><col class="example-col"></colgroup>
+    <thead><tr><th scope="col">Key</th><th scope="col">List of...</th><th scope="col">Comment</th><th scope="col">Example Value</th></tr></thead>
+    <tbody>{% for field in fields %}<tr><td>{{ field['keys']|join('.') }}</td><td>{{ field.type }}</td><td>{{ field.description }}</td><td><code>{{ field.example }}</code></td></tr>{% endfor %}</tbody>
+  </table></div>
+</div>
+{% endblock %}

@@ -4,6 +4,7 @@ import hashlib
 import json
 import shutil
 from generate_data import KEYS, ROOT, read_rows, source_path, write_json
+from generate_airlines import KEY as AIRLINES_KEY, SOURCE as AIRLINES_SOURCE, leaves
 
 
 def sha(path):
@@ -12,9 +13,9 @@ def sha(path):
 
 def release():
     catalog = []
-    for key in KEYS:
+    for key in [*KEYS, AIRLINES_KEY]:
         folder = ROOT / "data/generated" / key
-        ext = source_path(key).suffix
+        ext = (AIRLINES_SOURCE if key == AIRLINES_KEY else source_path(key)).suffix
         audit = json.loads((folder / "semantic-audit.json").read_text())
         validation = json.loads((folder / "validation-report.json").read_text())
         if not (audit["passed"] and validation["passed"]):
@@ -28,6 +29,26 @@ def release():
         if dest.exists() and sha(dest) != sha(folder / ("synthetic-dirty" + ext)):
             raise ValueError(f"Immutable v1 release differs: {filename}; create a new version")
         shutil.copyfile(folder / ("synthetic-dirty" + ext), dest)
+        if key == AIRLINES_KEY:
+            rows = json.loads(dest.read_text())
+            catalog.append(
+                dict(
+                    id=key,
+                    site="corgis",
+                    title="Airlines",
+                    period="2015",
+                    station="",
+                    province="",
+                    format="JSON",
+                    rows=len(rows),
+                    filename=filename,
+                    url="/downloads/v1/" + filename,
+                    bytes=dest.stat().st_size,
+                    sha256=sha(dest),
+                    columns=[p.strip("/").replace("/", ".") for p, _ in leaves(rows[0])],
+                )
+            )
+            continue
         taxi = key.startswith("green")
         place = key.split("-")[0]
         catalog.append(

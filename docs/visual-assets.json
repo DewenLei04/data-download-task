@@ -35,6 +35,16 @@
       "path": "website/public/brand/nyc-logo.svg",
       "url": "https://raw.githubusercontent.com/CityOfNewYork/nyc-core-framework/master/images/nyc-bubble-logo.svg",
       "sha256": "98023470ef6f81dd51448ec37060e4e18f7f7ecaf57d0f55ec698b3ade26f25a"
+    },
+    {
+      "path": "website/public/brand/corgis-logo.png",
+      "url": "https://corgis-edu.github.io/corgis/images/logo.png",
+      "sha256": "4ba5cac763f6141224e683412f074cbceef505763ad446c83adcdf49a96aefc4"
+    },
+    {
+      "path": "website/public/brand/corgis-airlines.png",
+      "url": "https://corgis-edu.github.io/corgis/images/datasets/airlines-icon.png",
+      "sha256": "c85d72bc47b2c58411bfd2cdb98cea4b3d7f8f946bb0d66284d4c70e7805f5ac"
     }
   ]
 }

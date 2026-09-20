@@ -1,6 +1,6 @@
 """Bounded acquisition, separate from the data-generation skill.
 
-Download only the five declared official input files; retain existing snapshots.
+Download only declared reference input files; retain existing snapshots.
 """
 
 import hashlib
@@ -13,6 +13,7 @@ import pyarrow.parquet as pq
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data/raw"
 SOURCES = {
+    "corgis-airlines.json": "https://corgis-edu.github.io/corgis/datasets/json/airlines/airlines.json",
     **{
         f"green-2023-{m:02}.parquet": f"https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2023-{m:02}.parquet"
         for m in range(1, 4)
@@ -77,6 +78,17 @@ def acquire():
                 len(selected),
                 "sample rows",
             )
+        elif filename == "corgis-airlines.json":
+            # Select a complete calendar year before passing this local file to the skill.
+            # Filtering preserves the original month/airport order and every nested field.
+            rows = [r for r in json.loads(path.read_text()) if r["Time"]["Year"] == 2015]
+            assert len(rows) == 348
+            selected = RAW / "airlines-2015-source.json"
+            content = json.dumps(rows, indent=2) + "\n"
+            if selected.exists() and selected.read_text() != content:
+                raise ValueError("Airlines source selection drift")
+            selected.write_text(content)
+            print(filename, "snapshot verified; 348 airport-month source records selected")
         else:
             print(filename, "snapshot verified")
 

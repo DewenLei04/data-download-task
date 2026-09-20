@@ -2,7 +2,8 @@
 
 The interface contract is to reproduce the source sites' recognizable layout,
 typography, colors and navigation, simplifying only unrelated services and unavailable
-data. The download contents remain the previously audited skill-generated v1 files.
+data. The original five release files retain their exact bytes; the additional JSON file
+is independently skill-generated and audited.
 
 ## Canada Historical Data
 
@@ -46,6 +47,33 @@ synthetic 2023 months are shown. Unrelated agency services, translation and docu
 links are simplified. A current live screenshot would allow a tighter final comparison;
 the page is not labeled as a pixel-verified reproduction.
 
+## CORGIS JSON Datasets
+
+References: https://corgis-edu.github.io/corgis/json/ and
+https://corgis-edu.github.io/corgis/json/airlines/
+
+Both live pages were captured at 1440 × 1080. The replica follows the fluid 15px
+page inset, 40px/48px medium-weight headings, 16px/24px body, Bootstrap 4 system
+font stack, blue links, search row, three-column catalog grid and striped field table.
+The catalog includes only the one available generated dataset; unrelated original
+cards and unsupported downloads are omitted. The download file is visibly named
+`airlines-2015-v1.json`, under the same Download heading as the reference.
+
+The CORGIS stylesheet is separate from the other two sites: registering their bundled
+Noto Sans face would change the original system-font fallback. Chromium's actual
+rendered-font inspection confirms DejaVu Sans for the original and replica headings
+on this Linux host, and DejaVu Sans Light for the 300-weight subtitle. Both headings
+start at x=15, y=16 with a 1410px width. These are measured matching properties,
+not a claim that different descriptions and data produce identical whole-page pixels.
+See `reports/corgis-visual-measurements.json`.
+
+The original detail page has a broken splash-image URL, which is omitted. The
+replica replaces the author/version metadata with clear synthetic-release metadata,
+uses newly written field descriptions and examples from the released synthetic file,
+and corrects the reference page's incorrect claim that months are zero-based.
+On mobile the catalog collapses to one column and the wide dictionary scrolls within
+its own region. The download link remains visible and keyboard accessible.
+
 ## Local assets
 
 Fonts and marks are served locally: no Google Fonts or government-hosted resources
@@ -55,14 +83,15 @@ The Canada marks come from the reference site's GCWeb distribution. The NYC SVG
 comes from CityOfNewYork/nyc-core-framework with its MIT notice retained; its color
 is supplied by CSS in the header.
 These marks identify the reference appearance; the page explicitly says it is an
-independent research replica, not an official government service.
+independent research replica, not an official government service. CORGIS logo/icon
+source attribution is retained in `website/public/brand/NOTICE-CORGIS.txt`.
 
 ## Validation
 
 - Host Chromium covers the year accordion, expand/collapse controls, station-name and
   province tabs, keyboard tab navigation, header search, menu and all download surfaces.
-- All six tasks' shipped oracle navigation functions run against the local website.
-- 23 download events match the unchanged release file hashes.
+- All seven tasks' shipped oracle navigation functions run against the local website.
+- 26 download events match the unchanged release file hashes.
 - No external runtime requests, browser script errors or 390px document overflow.
 - These are host browser checks. ALE container/model validation remains separately
   pending as described in `handoff.md`.

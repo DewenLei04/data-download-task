@@ -1,0 +1,252 @@
+{
+  "reference": {
+    "h1": {
+      "box": {
+        "x": 15,
+        "y": 16,
+        "width": 1410,
+        "height": 48,
+        "top": 16,
+        "right": 1425,
+        "bottom": 64,
+        "left": 15
+      },
+      "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "size": "40px",
+      "weight": "500",
+      "line": "48px",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgba(0, 0, 0, 0)",
+      "fonts": [
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans",
+          "isCustomFont": false,
+          "glyphCount": 18
+        }
+      ]
+    },
+    ".lead": {
+      "box": {
+        "x": 15,
+        "y": 72,
+        "width": 1410,
+        "height": 30,
+        "top": 72,
+        "right": 1425,
+        "bottom": 102,
+        "left": 15
+      },
+      "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "size": "20px",
+      "weight": "300",
+      "line": "30px",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgba(0, 0, 0, 0)",
+      "fonts": [
+        {
+          "familyName": "DejaVu Sans Light",
+          "postScriptName": "DejaVuSans-ExtraLight",
+          "isCustomFont": false,
+          "glyphCount": 31
+        }
+      ]
+    },
+    "table": {
+      "box": {
+        "x": 15,
+        "y": 518,
+        "width": 1410,
+        "height": 2186,
+        "top": 518,
+        "right": 1425,
+        "bottom": 2704,
+        "left": 15
+      },
+      "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "size": "16px",
+      "weight": "400",
+      "line": "24px",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgba(0, 0, 0, 0)",
+      "fonts": []
+    },
+    "tbody tr:nth-child(1)": {
+      "box": {
+        "x": 15.5,
+        "y": 518.5,
+        "width": 1409,
+        "height": 73,
+        "top": 518.5,
+        "right": 1424.5,
+        "bottom": 591.5,
+        "left": 15.5
+      },
+      "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "size": "16px",
+      "weight": "400",
+      "line": "24px",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgba(0, 0, 0, 0.05)",
+      "fonts": [
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans-Bold",
+          "isCustomFont": false,
+          "glyphCount": 32
+        }
+      ]
+    },
+    "tbody tr:nth-child(2)": {
+      "box": {
+        "x": 15.5,
+        "y": 591.5,
+        "width": 1409,
+        "height": 73,
+        "top": 591.5,
+        "right": 1424.5,
+        "bottom": 664.5,
+        "left": 15.5
+      },
+      "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "size": "16px",
+      "weight": "400",
+      "line": "24px",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgba(0, 0, 0, 0)",
+      "fonts": [
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans",
+          "isCustomFont": false,
+          "glyphCount": 107
+        }
+      ]
+    }
+  },
+  "local": {
+    "h1": {
+      "box": {
+        "x": 15,
+        "y": 16,
+        "width": 1410,
+        "height": 48,
+        "top": 16,
+        "right": 1425,
+        "bottom": 64,
+        "left": 15
+      },
+      "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "size": "40px",
+      "weight": "500",
+      "line": "48px",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgba(0, 0, 0, 0)",
+      "fonts": [
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans",
+          "isCustomFont": false,
+          "glyphCount": 18
+        }
+      ]
+    },
+    ".lead": {
+      "box": {
+        "x": 15,
+        "y": 72,
+        "width": 1410,
+        "height": 30,
+        "top": 72,
+        "right": 1425,
+        "bottom": 102,
+        "left": 15
+      },
+      "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "size": "20px",
+      "weight": "300",
+      "line": "30px",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgba(0, 0, 0, 0)",
+      "fonts": [
+        {
+          "familyName": "DejaVu Sans Light",
+          "postScriptName": "DejaVuSans-ExtraLight",
+          "isCustomFont": false,
+          "glyphCount": 50
+        }
+      ]
+    },
+    "table": {
+      "box": {
+        "x": 15,
+        "y": 518,
+        "width": 1410,
+        "height": 2259,
+        "top": 518,
+        "right": 1425,
+        "bottom": 2777,
+        "left": 15
+      },
+      "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "size": "16px",
+      "weight": "400",
+      "line": "24px",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgba(0, 0, 0, 0)",
+      "fonts": []
+    },
+    "tbody tr:nth-child(1)": {
+      "box": {
+        "x": 15.5,
+        "y": 592,
+        "width": 1409,
+        "height": 73.5,
+        "top": 592,
+        "right": 1424.5,
+        "bottom": 665.5,
+        "left": 15.5
+      },
+      "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "size": "16px",
+      "weight": "400",
+      "line": "24px",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgba(0, 0, 0, 0)",
+      "fonts": [
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans",
+          "isCustomFont": false,
+          "glyphCount": 115
+        }
+      ]
+    },
+    "tbody tr:nth-child(2)": {
+      "box": {
+        "x": 15.5,
+        "y": 665.5,
+        "width": 1409,
+        "height": 73,
+        "top": 665.5,
+        "right": 1424.5,
+        "bottom": 738.5,
+        "left": 15.5
+      },
+      "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "size": "16px",
+      "weight": "400",
+      "line": "24px",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgba(0, 0, 0, 0.05)",
+      "fonts": [
+        {
+          "familyName": "DejaVu Sans",
+          "postScriptName": "DejaVuSans",
+          "isCustomFont": false,
+          "glyphCount": 134
+        }
+      ]
+    }
+  }
+}

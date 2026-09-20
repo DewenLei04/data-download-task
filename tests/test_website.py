@@ -1,5 +1,6 @@
 import hashlib
 import importlib.util
+import json
 from pathlib import Path
 import pytest
 
@@ -75,4 +76,29 @@ def test_initial_search_then_browse(client):
     assert "Vancouver International A · 2023" in browse
     assert (
         "No matching stations" in client.get("/v1/climate?q=Toronto&province=British+Columbia").text
+    )
+
+
+def test_json_download_schema_and_release(client):
+    item = next(d for d in module.CATALOG if d["site"] == "corgis")
+    response = client.get(item["url"])
+    assert response.mimetype == "application/json"
+    assert item["filename"] in response.headers["Content-Disposition"]
+    rows = json.loads(response.data)
+    assert len(rows) == item["rows"] == 348
+    assert len({(r["Airport"]["Code"], r["Time"]["Label"]) for r in rows}) == 348
+    assert {r["Time"]["Year"] for r in rows} == {2015}
+    assert all(list(r) == ["Airport", "Time", "Statistics"] for r in rows)
+    assert client.get("/v1/corgis/datasets/toronto-2023").status_code == 404
+    assert client.get("/corgis-fields.json").status_code == 404
+
+
+def test_json_catalog_search_without_javascript(client):
+    hit = client.get("/v1/corgis?q=AIRLINES").text
+    miss = client.get("/v1/corgis?q=missing").text
+    assert '<p id="corgis-empty" hidden>' in hit
+    assert '<p id="corgis-empty" >' in miss
+    assert (
+        'data-search="airlines 2015 airplane airports travel flights delays transportation json" hidden'
+        in miss
     )

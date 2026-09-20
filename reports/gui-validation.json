@@ -26,6 +26,11 @@
       "id": "vancouver-2023",
       "surface": "station-name search and detail",
       "passed": true
+    },
+    {
+      "id": "airlines-2015",
+      "surface": "JSON catalog search and download link",
+      "passed": true
     }
   ],
   "oracle_navigation": [
@@ -35,6 +40,10 @@
     },
     {
       "task": "climate-two-stations",
+      "host_browser_navigation_passed": true
+    },
+    {
+      "task": "corgis-airlines",
       "host_browser_navigation_passed": true
     },
     {
@@ -54,7 +63,7 @@
       "host_browser_navigation_passed": true
     }
   ],
-  "download_events": 23,
+  "download_events": 26,
   "mobile_width": 390,
   "page_errors": [],
   "external_requests": []

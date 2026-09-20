@@ -6,8 +6,8 @@ download links before connecting Vercel.
 
 ## Vercel, when the owner is ready
 
-Use **one Vercel project** with Root Directory **`website`**. Both sites live at the
-same origin under `/v1/transport` and `/v1/climate`; additional sites can follow the
+Use **one Vercel project** with Root Directory **`website`**. All three sites live at the
+same origin under `/v1/transport`, `/v1/climate` and `/v1/corgis`; additional sites can follow the
 same pattern. A separate Vercel address per site is unnecessary unless independent
 projects/domains are desired.
 
@@ -37,6 +37,7 @@ Task templates deliberately use a non-routable `.invalid` hostname until configu
 
 | Task | Required downloads |
 | --- | --- |
+| corgis-airlines | 2015 airport-month statistics JSON, 29 airports |
 | transport-january | January green taxi Parquet |
 | transport-quarter | January, February, March green taxi Parquet |
 | transport-comparison | January and March green taxi Parquet |
@@ -53,7 +54,7 @@ The task instruction states the outcome; it does not claim the hash verifier pro
 GUI-only behavior. Use ALE's `computer-use` harness to evaluate GUI capability and
 review screenshots/actions in `trajectory.json`. The oracle uses actual browser links
 through Playwright, but is a scripted reference solver, not a model. Its navigation
-functions have been exercised for all six tasks in host Chromium after the visual
+functions have been exercised for all seven tasks in host Chromium after the visual
 revision; headed sandbox execution is still unverified.
 
 The image adds pinned Playwright 1.63.0 and its Chromium browser to ALE's desktop base.
@@ -123,7 +124,7 @@ update oracle/timeout/network policy accordingly. Run untouched and full oracle
 validation again for the combined task; these draft folders are not already validated
 compositions.
 
-The current remote is public. Local progress can be committed safely without pushing.
-Before uploading evaluator references or patches, choose a private research repository
-or split the public website from private tasks/audits. The ignored private evidence
-bundle is local storage, not a remote backup.
+The public research repository has been pushed with the owner's authorization. Full
+source snapshots, generated clean/dirty pairs, semantic audits and screenshots remain
+in ignored local directories. The ignored private evidence bundles are local storage,
+not remote backups. The CORGIS additions are described in `corgis-json.md`.

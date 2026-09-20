@@ -1,4 +1,4 @@
-"""Materialize six self-contained ALE tasks for a specified deployment URL."""
+"""Materialize self-contained ALE tasks for a specified deployment URL."""
 
 import argparse
 import json
@@ -9,6 +9,11 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 TASKS = [
+    (
+        "corgis-airlines",
+        ["airlines-2015"],
+        "Find the Airlines dataset in the CORGIS JSON Datasets collection. Download the JSON file containing monthly flight statistics for 29 US airports for January through December 2015.",
+    ),
     (
         "transport-january",
         ["green-2023-01"],

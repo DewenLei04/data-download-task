@@ -1,0 +1,13 @@
+Reference graphics: CORGIS Datasets Project
+
+corgis-logo.png
+https://corgis-edu.github.io/corgis/images/logo.png
+
+corgis-airlines.png
+https://corgis-edu.github.io/corgis/images/datasets/airlines-icon.png
+
+Retrieved 2026-09-20 to reproduce the reference website's visual appearance.
+Project: https://corgis-edu.github.io/corgis/
+These original reference graphics are not newly authored project artwork.
+This independent research replica is not an official CORGIS service.
+All downloadable observations are newly generated synthetic data.

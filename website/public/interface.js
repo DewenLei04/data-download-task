@@ -26,3 +26,9 @@ document.querySelector('[data-collapse-years]')?.addEventListener('click', () =>
 document.querySelector('[data-text-size]')?.addEventListener('click', () => {
   document.body.classList.toggle('large-text');
 });
+document.querySelector('#corgis-search')?.addEventListener('input', event => {
+  const query = event.target.value.trim().toLowerCase();
+  const cards = [...document.querySelectorAll('[data-corgis-card]')];
+  cards.forEach(card => { card.hidden = !card.dataset.search.includes(query); });
+  document.querySelector('#corgis-empty').hidden = cards.some(card => !card.hidden);
+});

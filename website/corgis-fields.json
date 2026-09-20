@@ -1,0 +1,212 @@
+[
+  {
+    "keys": [
+      "Airport",
+      "Code"
+    ],
+    "type": "String",
+    "description": "Three-letter IATA airport code. Codes identify the same airport across the twelve monthly records."
+  },
+  {
+    "keys": [
+      "Airport",
+      "Name"
+    ],
+    "type": "String",
+    "description": "Historical airport name and location associated with the code. The reference labels reflect the 2015 reporting period."
+  },
+  {
+    "keys": [
+      "Time",
+      "Label"
+    ],
+    "type": "String",
+    "description": "Reporting period written as YYYY/MM. The records are arranged by month, then by airport code within each month."
+  },
+  {
+    "keys": [
+      "Time",
+      "Month"
+    ],
+    "type": "Integer",
+    "description": "Calendar month number, from 1 for January through 12 for December."
+  },
+  {
+    "keys": [
+      "Time",
+      "Month Name"
+    ],
+    "type": "String",
+    "description": "English name of the reporting month, corresponding to the month number and period label."
+  },
+  {
+    "keys": [
+      "Time",
+      "Year"
+    ],
+    "type": "Integer",
+    "description": "Four-digit reporting year. This release covers January through December 2015."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "# of Delays",
+      "Carrier"
+    ],
+    "type": "Integer",
+    "description": "Monthly number of delays attributed to carrier operations, such as crew, maintenance or aircraft servicing. Counts summarize the airport-month and retain the reference export\u2019s integer representation."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "# of Delays",
+      "Late Aircraft"
+    ],
+    "type": "Integer",
+    "description": "Monthly number of delays attributed to the late arrival of an aircraft from its previous flight. Counts summarize the airport-month and retain the reference export\u2019s integer representation."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "# of Delays",
+      "National Aviation System"
+    ],
+    "type": "Integer",
+    "description": "Monthly number of delays attributed to national airspace and airport operations, including traffic management and congestion. Counts summarize the airport-month and retain the reference export\u2019s integer representation."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "# of Delays",
+      "Security"
+    ],
+    "type": "Integer",
+    "description": "Monthly number of delays attributed to security screening or a security-related interruption. Counts summarize the airport-month and retain the reference export\u2019s integer representation."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "# of Delays",
+      "Weather"
+    ],
+    "type": "Integer",
+    "description": "Monthly number of delays attributed to weather-related operational disruption. Counts summarize the airport-month and retain the reference export\u2019s integer representation."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Carriers",
+      "Names"
+    ],
+    "type": "String",
+    "description": "Comma-separated roster of carriers represented in this airport\u2019s monthly statistics. Names use the historical reference vocabulary."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Carriers",
+      "Total"
+    ],
+    "type": "Integer",
+    "description": "Number of carrier names in the reporting roster for this airport and month."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Flights",
+      "Cancelled"
+    ],
+    "type": "Integer",
+    "description": "Monthly count of flights recorded as cancelled at this airport."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Flights",
+      "Delayed"
+    ],
+    "type": "Integer",
+    "description": "Monthly count of flights recorded as delayed. Cause-specific counts may have small rounding differences when compared with this figure."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Flights",
+      "Diverted"
+    ],
+    "type": "Integer",
+    "description": "Monthly count of flights recorded as diverted from their scheduled destination."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Flights",
+      "On Time"
+    ],
+    "type": "Integer",
+    "description": "Monthly count of flights recorded as on time at this airport."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Flights",
+      "Total"
+    ],
+    "type": "Integer",
+    "description": "Monthly total across the cancelled, delayed, diverted and on-time flight categories."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Minutes Delayed",
+      "Carrier"
+    ],
+    "type": "Integer",
+    "description": "Monthly delay duration in minutes attributed to carrier operations, such as crew, maintenance or aircraft servicing. This is a duration total, rather than the number of affected flights."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Minutes Delayed",
+      "Late Aircraft"
+    ],
+    "type": "Integer",
+    "description": "Monthly delay duration in minutes attributed to the late arrival of an aircraft from its previous flight. This is a duration total, rather than the number of affected flights."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Minutes Delayed",
+      "National Aviation System"
+    ],
+    "type": "Integer",
+    "description": "Monthly delay duration in minutes attributed to national airspace and airport operations, including traffic management and congestion. This is a duration total, rather than the number of affected flights."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Minutes Delayed",
+      "Security"
+    ],
+    "type": "Integer",
+    "description": "Monthly delay duration in minutes attributed to security screening or a security-related interruption. This is a duration total, rather than the number of affected flights."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Minutes Delayed",
+      "Total"
+    ],
+    "type": "Integer",
+    "description": "Combined delay duration in minutes across the five reported cause categories."
+  },
+  {
+    "keys": [
+      "Statistics",
+      "Minutes Delayed",
+      "Weather"
+    ],
+    "type": "Integer",
+    "description": "Monthly delay duration in minutes attributed to weather-related operational disruption. This is a duration total, rather than the number of affected flights."
+  }
+]

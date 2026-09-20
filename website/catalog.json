@@ -200,5 +200,45 @@
       "Spd of Max Gust (km/h)",
       "Spd of Max Gust Flag"
     ]
+  },
+  {
+    "id": "airlines-2015",
+    "site": "corgis",
+    "title": "Airlines",
+    "period": "2015",
+    "station": "",
+    "province": "",
+    "format": "JSON",
+    "rows": 348,
+    "filename": "airlines-2015-v1.json",
+    "url": "/downloads/v1/airlines-2015-v1.json",
+    "bytes": 367530,
+    "sha256": "0ef29fb59c5e34f3a1298c043021c286813b0697e3349af7baee420a210fd201",
+    "columns": [
+      "Airport.Code",
+      "Airport.Name",
+      "Time.Label",
+      "Time.Month",
+      "Time.Month Name",
+      "Time.Year",
+      "Statistics.# of Delays.Carrier",
+      "Statistics.# of Delays.Late Aircraft",
+      "Statistics.# of Delays.National Aviation System",
+      "Statistics.# of Delays.Security",
+      "Statistics.# of Delays.Weather",
+      "Statistics.Carriers.Names",
+      "Statistics.Carriers.Total",
+      "Statistics.Flights.Cancelled",
+      "Statistics.Flights.Delayed",
+      "Statistics.Flights.Diverted",
+      "Statistics.Flights.On Time",
+      "Statistics.Flights.Total",
+      "Statistics.Minutes Delayed.Carrier",
+      "Statistics.Minutes Delayed.Late Aircraft",
+      "Statistics.Minutes Delayed.National Aviation System",
+      "Statistics.Minutes Delayed.Security",
+      "Statistics.Minutes Delayed.Total",
+      "Statistics.Minutes Delayed.Weather"
+    ]
   }
 ]

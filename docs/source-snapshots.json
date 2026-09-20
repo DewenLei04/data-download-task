@@ -30,6 +30,14 @@
       "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=51442&Year=2023&Month=1&Day=1&timeframe=2&submit=Download+Data",
       "sha256": "36eb34801486ef48463a09e35859bfa362e5d014e3492278d1c05b1bf80ec284",
       "bytes": 64906
+    },
+    {
+      "file": "corgis-airlines.json",
+      "url": "https://corgis-edu.github.io/corgis/datasets/json/airlines/airlines.json",
+      "sha256": "ec87d7368009d45c20a19b9b4869c65f5add0b44bc469aa2bd6daa49f956401d",
+      "bytes": 4964701,
+      "retrieved_on": "2026-09-20",
+      "selection": "All 348 records with Time.Year == 2015, preserving source order and full schema."
     }
   ],
   "prototypes": [
@@ -41,6 +49,16 @@
       "url": "https://climate.weather.gc.ca/historical_data/search_historic_data_e.html",
       "status": "HTML downloaded to private data/raw/climate-prototype.html",
       "sha256": "a13e94f637d38050447b6403398872e0f69d6f8de216454c667cf84b6b6bbae5"
+    },
+    {
+      "url": "https://corgis-edu.github.io/corgis/json/",
+      "status": "Reference DOM and full-page Chromium screenshot captured locally",
+      "sha256": "7f6fd727f554241554fe3914a25777f45a5420f4027ffec19833225acf95c337"
+    },
+    {
+      "url": "https://corgis-edu.github.io/corgis/json/airlines/",
+      "status": "Reference DOM and full-page Chromium screenshot captured locally",
+      "sha256": "6ec4c394aaebd08009162d8cdb807a8135c3bb52591759f516b86dc61c06884f"
     }
   ],
   "skill_sha256": "e7f246c9b633daf914963ecefaef0ab2435cae7fbc45fc0ee121b70757c05410"

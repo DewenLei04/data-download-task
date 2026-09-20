@@ -1,15 +1,16 @@
 # Data download tasks
 
-Two reference-style synthetic data websites and six draft ALE download tasks. The website is complete
+Three reference-style synthetic data websites and seven draft ALE download tasks. The website is complete
 and tested locally. Vercel deployment and model-driven ALE execution are deferred.
 
 - **TLC Trip Record Data** — `/v1/transport`, three monthly green taxi Parquet extracts.
 - **Historical Climate Data** — `/v1/climate`, Toronto and Vancouver daily CSV exports.
-- **Collections** — `/`, a starting page linking both websites.
+- **CORGIS JSON Datasets** — `/v1/corgis`, 2015 airline statistics in a nested JSON file.
+- **Collections** — `/`, a starting page linking all three websites.
 
-All five public files are skill-generated synthetic dirty datasets, not copied source
-files. The original field schemas are retained. There are 1,450 generated records and
-18 intentionally dirty records in total. Source data, clean counterparts, error locations
+All six public files are skill-generated synthetic dirty datasets, not copied source
+files. The original field schemas are retained. There are 1,798 generated records and
+21 intentionally dirty records in total. Source data, clean counterparts, error locations
 and audit sidecars are kept outside the web deployment.
 
 ## Run locally
@@ -36,11 +37,11 @@ browser libraries may need Playwright's browser dependency installation.
 
 | Check | Result |
 | --- | --- |
-| Supplied skill: v4 validation + semantic audit | 5/5 passed |
-| Website and real ALE verifier API tests | 19 passed |
-| Chromium clicks and downloaded-file hashes | 23 downloads passed |
+| Supplied skill: v4 validation + semantic audit | 6/6 passed |
+| Website and real ALE verifier API tests | 22 passed |
+| Chromium clicks and downloaded-file hashes | 26 downloads passed |
 | Desktop review and mobile overflow checks | Passed |
-| ALE task lint at `04b0599` | 6 task folders passed |
+| ALE task lint at `04b0599` | 7 task folders passed |
 | ALE container `validate` | Blocked before execution: base image returns 401 |
 | ALE model-driven GUI run | Not run; model service not configured |
 | Vercel deployment | Not started, as requested |
@@ -59,10 +60,10 @@ an explicitly documented draft limitation, not final benchmark admission.
 website/                 only directory to deploy to Vercel
   app.py                 Flask routes and filtering
   public/downloads/v1/   immutable synthetic release files
-  templates/             reference-style transport and climate interfaces
+  templates/             reference-style transport, climate and CORGIS interfaces
 scripts/                 source acquisition, skill pipeline, release and task builders
   apply_authored_patches.py  exact, reviewed corruption edits; evaluator material
-tasks/                   six self-contained ALE task folders; evaluator material
+tasks/                   seven self-contained ALE task folders; evaluator material
 tooling/                 vendored user skill and task templates
 tests/                   website behavior and negative verifier cases
 docs/                    development, provenance, ALE review and handoff
@@ -73,10 +74,10 @@ Local, ignored `data/raw/`, `data/generated/` and `data/releases/private/` prese
 source snapshots and complete skill artifacts. `reports/screenshots/` contains the
 actual browser captures. These directories are not backed up by a normal Git push.
 
-The remote repository was public when checked. No remote push was performed in this
-work: `tasks/`, generation patches and private audits can reveal evaluator references.
-Before sharing, make the research repository private, or publish only `website/` in a
-separate public repository and retain evaluator materials privately.
+The GitHub repository is public and has been pushed with the owner's authorization.
+The deployed website exposes only `website/public/` assets and application routes;
+task references and generation scripts belong to the research repository. Ignored
+source snapshots, audit artifacts and screenshots remain local, not GitHub backups.
 
 See [handoff](docs/handoff.md) for deployment, ALE setup and merging into other tasks;
 [source provenance](docs/provenance.md) for dataset generation details; and the

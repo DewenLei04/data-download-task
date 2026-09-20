@@ -17,7 +17,7 @@ def download_dataset(page, base_url, item, output):
             has=page.get_by_role("heading", name=month, exact=True)
         )
         row.get_by_role("link", name="Dataset details", exact=True).click()
-    else:
+    elif item["site"] == "climate":
         page.get_by_role("tab", name="Search by Province or Territory").click()
         panel = page.get_by_role("tabpanel", name="Search by Province or Territory")
         panel.get_by_label("Province or Territory:", exact=True).select_option(item["province"])
@@ -26,6 +26,11 @@ def download_dataset(page, base_url, item, output):
         page.get_by_role(
             "link", name="View station data — " + item["station"].title() + " International A"
         ).click()
+    elif item["site"] == "corgis":
+        page.get_by_role("searchbox", name="Search:", exact=True).fill("airlines")
+        page.get_by_role("link", name="View Airlines", exact=True).click()
+    else:
+        raise ValueError("Unsupported dataset site: " + item["site"])
     with page.expect_download() as event:
         page.get_by_role("link", name="Download " + item["format"], exact=True).click()
     download = event.value
