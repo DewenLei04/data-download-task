@@ -1,0 +1,14 @@
+[
+  {
+    "id": "green-2023-01",
+    "filename": "green-2023-01-v1.parquet",
+    "bytes": 22799,
+    "sha256": "4ee881a97250e9249e617d3059764badfa41e0cebb6088f263007523cc60c38a"
+  },
+  {
+    "id": "green-2023-03",
+    "filename": "green-2023-03-v1.parquet",
+    "bytes": 16536,
+    "sha256": "446235f7362d8e7726d263a0fc8301c60ef2b019871c48727baed6d47a6a74c4"
+  }
+]

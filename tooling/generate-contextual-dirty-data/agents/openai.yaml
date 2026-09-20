@@ -1,0 +1,4 @@
+interface:
+  display_name: "Contextual Dirty Data Generator"
+  short_description: "Generate realistic synthetic datasets with controlled errors"
+  default_prompt: "Use $generate-contextual-dirty-data to infer this dataset and generate a structurally identical synthetic version with context-appropriate dirty records."

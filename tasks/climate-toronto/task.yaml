@@ -1,0 +1,29 @@
+spec_type: core/v1
+name: climate-toronto
+environment: core/standard
+os: linux
+image:
+  kind: container
+resources:
+  cpus: 2
+  memory_mb: 3072
+network:
+  mode: open
+timeouts:
+  setup: 120
+  agent: 900
+  verify: 120
+artifacts:
+- /home/user/output
+params:
+  site_url: https://data-download-task.example.invalid
+metadata:
+  tags:
+  - data-download
+  - browser
+  - synthetic-data
+  status: draft-pending-container-and-model-validation
+  network_justification: The task inherently downloads from a hosted website. At ALE
+    04b0599, allowlist proxy settings are not inherited by the setup-launched GUI
+    browser and CLI validate does not provision an oracle proxy. Open networking is
+    a temporary integration limitation; narrow it before benchmark admission.

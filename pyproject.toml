@@ -1,0 +1,13 @@
+[project]
+name = "data-download-task"
+version = "0.1.0"
+description = "Synthetic data websites and self-contained ALE download tasks"
+requires-python = ">=3.12"
+dependencies = ["flask>=3.1,<4", "pyarrow>=19,<24", "pyyaml>=6,<7"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "playwright>=1.58,<2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ title }}</title><meta name="description" content="Browse and download synthetic transport and historical climate datasets."><link rel="stylesheet" href="/style.css"></head>
+<body class="{{ theme }}"><a class="skip" href="#main">Skip to content</a>
+<div class="notice">INDEPENDENT SYNTHETIC DATA COLLECTION · Research and evaluation use</div>
+<header><div class="wrap nav"><a class="brand" href="{{ '/v1/transport' if theme=='transport' else '/v1/climate' if theme=='climate' else '/' }}"><span class="brand-icon">{{ 'M' if theme=='transport' else 'N' if theme=='climate' else 'F' }}</span>{{ 'METRO DATA' if theme=='transport' else 'NORTHSTAR' if theme=='climate' else 'FIELDWORK' }}</a><nav aria-label="Main navigation"><a href="/" {{ 'aria-current=page' if theme=='hub' }}>Collections</a><a href="/v1/transport" {{ 'aria-current=page' if theme=='transport' }}>Transport</a><a href="/v1/climate" {{ 'aria-current=page' if theme=='climate' }}>Climate</a></nav></div></header>
+<main id="main">{% block content %}{% endblock %}</main>
+<footer class="wrap"><span>Fieldwork collections <span class="dot">/</span> Release v1</span><span>Synthetic observations. Not official records.</span></footer></body></html>

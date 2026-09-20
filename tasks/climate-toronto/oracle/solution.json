@@ -1,0 +1,10 @@
+[
+  {
+    "site": "climate",
+    "period": "2023",
+    "station": "toronto",
+    "province": "Ontario",
+    "format": "CSV",
+    "filename": "toronto-2023-v1.csv"
+  }
+]

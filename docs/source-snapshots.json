@@ -1,0 +1,47 @@
+{
+  "retrieved_on": "2026-09-19",
+  "sources": [
+    {
+      "file": "green-2023-01.parquet",
+      "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2023-01.parquet",
+      "sha256": "9f0e03dd7f8f94ecc15949cdbfd2a4e1fc9ebb41a11882215158c9fc95012e31",
+      "bytes": 1427002
+    },
+    {
+      "file": "green-2023-02.parquet",
+      "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2023-02.parquet",
+      "sha256": "bcc2821d639197cbb09aeb8994121a7004f2a6568a64bf4839015db802f62743",
+      "bytes": 1533740
+    },
+    {
+      "file": "green-2023-03.parquet",
+      "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2023-03.parquet",
+      "sha256": "69ab2c3b515ad1dd686a8ac3375370b8a44b003d95d340655d94828db0681d9d",
+      "bytes": 1730999
+    },
+    {
+      "file": "toronto-2023.csv",
+      "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=51459&Year=2023&Month=1&Day=1&timeframe=2&submit=Download+Data",
+      "sha256": "40ca72c38ab2a565d9263e11207c20e47d7a9c1719b4c37033cbb2bce75b8c56",
+      "bytes": 64254
+    },
+    {
+      "file": "vancouver-2023.csv",
+      "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=51442&Year=2023&Month=1&Day=1&timeframe=2&submit=Download+Data",
+      "sha256": "36eb34801486ef48463a09e35859bfa362e5d014e3492278d1c05b1bf80ec284",
+      "bytes": 64906
+    }
+  ],
+  "prototypes": [
+    {
+      "url": "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page",
+      "status": "Reviewed through web retrieval; direct wget and Chromium HTML acquisition returned HTTP 403. The separately hosted monthly Parquet files downloaded successfully."
+    },
+    {
+      "url": "https://climate.weather.gc.ca/historical_data/search_historic_data_e.html",
+      "status": "HTML downloaded to private data/raw/climate-prototype.html",
+      "sha256": "a13e94f637d38050447b6403398872e0f69d6f8de216454c667cf84b6b6bbae5"
+    }
+  ],
+  "skill_sha256": "e7f246c9b633daf914963ecefaef0ab2435cae7fbc45fc0ee121b70757c05410"
+}

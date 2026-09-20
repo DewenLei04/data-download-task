@@ -1,0 +1,85 @@
+{
+  "date": "2026-09-19",
+  "ale_commit": "04b0599928317191ca6557847a456a70ab2d0438",
+  "skill": [
+    {
+      "dataset": "green-2023-01",
+      "validation_passed": true,
+      "semantic_audit_passed": true,
+      "records": 240,
+      "dirty_records": 4,
+      "dirty_cells": 4,
+      "changed_value_ratio": 0.5178947368421053,
+      "actual_dirty_record_rate": 0.016666666666666666,
+      "source_row_overlap": 0
+    },
+    {
+      "dataset": "green-2023-02",
+      "validation_passed": true,
+      "semantic_audit_passed": true,
+      "records": 240,
+      "dirty_records": 4,
+      "dirty_cells": 4,
+      "changed_value_ratio": 0.5256500351370345,
+      "actual_dirty_record_rate": 0.016666666666666666,
+      "source_row_overlap": 0
+    },
+    {
+      "dataset": "green-2023-03",
+      "validation_passed": true,
+      "semantic_audit_passed": true,
+      "records": 240,
+      "dirty_records": 4,
+      "dirty_cells": 4,
+      "changed_value_ratio": 0.5214035087719299,
+      "actual_dirty_record_rate": 0.016666666666666666,
+      "source_row_overlap": 0
+    },
+    {
+      "dataset": "toronto-2023",
+      "validation_passed": true,
+      "semantic_audit_passed": true,
+      "records": 365,
+      "dirty_records": 3,
+      "dirty_cells": 3,
+      "changed_value_ratio": 0.6367231638418079,
+      "actual_dirty_record_rate": 0.00821917808219178,
+      "source_row_overlap": 32
+    },
+    {
+      "dataset": "vancouver-2023",
+      "validation_passed": true,
+      "semantic_audit_passed": true,
+      "records": 365,
+      "dirty_records": 3,
+      "dirty_cells": 3,
+      "changed_value_ratio": 0.6435171385991059,
+      "actual_dirty_record_rate": 0.00821917808219178,
+      "source_row_overlap": 27
+    }
+  ],
+  "pytest": {
+    "passed": 17,
+    "failed": 0
+  },
+  "gui": {
+    "download_events": 12,
+    "all_hashes_match": true,
+    "mobile_overflow": false
+  },
+  "ale_lint": {
+    "passed": true,
+    "tasks": 6
+  },
+  "ale_validate": {
+    "status": "blocked_before_execution",
+    "reason": "ALE base image anonymous GHCR token returned 401 Unauthorized; original base source build also failed with TLS bad record MAC."
+  },
+  "model_gui": {
+    "status": "not_run",
+    "reason": "No model service configured"
+  },
+  "vercel": {
+    "status": "deferred_by_user"
+  }
+}

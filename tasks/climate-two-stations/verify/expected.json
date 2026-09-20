@@ -1,0 +1,14 @@
+[
+  {
+    "id": "toronto-2023",
+    "filename": "toronto-2023-v1.csv",
+    "bytes": 41575,
+    "sha256": "e0b58a64647ac3f7c20a2a0f80e71d772c7b736beebaa451f37a570498f4debd"
+  },
+  {
+    "id": "vancouver-2023",
+    "filename": "vancouver-2023-v1.csv",
+    "bytes": 42211,
+    "sha256": "828a2a53eae81edf8c7d1e335e2c6cd3a1260640f3cecb35f0f11cb067668d7f"
+  }
+]
