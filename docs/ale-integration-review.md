@@ -43,3 +43,10 @@ Docker and Node were available. uv/just and ALE dependencies were installed duri
 preparation. Pulling the published ALE desktop base returned `unauthorized`; local
 source build is being evaluated. No model credential was provided. Vercel deployment
 is intentionally deferred until the website is ready.
+
+## Deployment follow-up
+
+The owner subsequently authorized and completed Vercel deployment. Production
+https://data-download-task.vercel.app passed host browser download validation, and
+all seven task URLs now point there. Container/model execution remains pending;
+website deployment does not resolve the ALE image or model-configuration blockers.

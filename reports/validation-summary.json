@@ -70,14 +70,15 @@
     }
   ],
   "pytest": {
-    "passed": 22,
+    "passed": 23,
     "failed": 0
   },
   "gui": {
     "download_events": 26,
     "all_hashes_match": true,
     "mobile_overflow": false,
-    "host_oracle_navigation_tasks": 7
+    "host_oracle_navigation_tasks": 7,
+    "base_url": "https://data-download-task.vercel.app"
   },
   "ale_lint": {
     "passed": true,
@@ -92,7 +93,12 @@
     "reason": "No model service configured"
   },
   "vercel": {
-    "status": "deferred_by_user"
+    "status": "deployed_and_verified",
+    "url": "https://data-download-task.vercel.app",
+    "anonymous_access": true,
+    "download_files_verified": 6,
+    "browser_download_events": 26,
+    "report": "vercel-validation.json"
   },
   "visual_revision_date": "2026-09-20"
 }

@@ -72,9 +72,14 @@ The verifier uses the same exact-byte, regular-file checks as the existing tasks
 Host Chromium verifies the filename, SHA-256 and parsed nested JSON after an actual
 download event. It also checks empty search, case-insensitive matching, restoring
 results, the 24-field dictionary, desktop geometry and 390px document overflow.
-The project has 22 passing pytest cases, 26 successful GUI downloads across all
+The project has 23 passing pytest cases, 26 successful GUI downloads across all
 surfaces/oracles, and seven task folders passing ALE lint.
 
 These are host browser and verifier checks. A model GUI agent has not been run;
 ALE container validation remains blocked by the previously observed base-image
-access issue. Vercel deployment remains deferred by the owner.
+access issue. Vercel production is live at https://data-download-task.vercel.app.
+The initial deployed detail page failed because CDN assets were not present in the
+Python function filesystem. Release-time examples are now included in the field
+dictionary; the detail route no longer reads the public JSON file at runtime. A
+regression test simulates missing CDN files. All 26 downloads also pass against
+production.

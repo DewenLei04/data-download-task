@@ -17,7 +17,8 @@ and colors; simplify unrelated services and unsupported data coverage only.
    and validate empty/oracle outputs and deliberately incorrect outputs.
 7. Run a real GUI agent after model credentials are available. Report this separately
    from scripted browser tests and oracle validation.
-8. Deploy to Vercel only after local review, as requested by the owner.
+8. Deploy to Vercel after local review: completed with owner authorization at
+   https://data-download-task.vercel.app; production download checks passed.
 
 The source repository was public at initialization. Source inputs, clean/dirty audit
 materials and run evidence remain ignored until a private storage decision is made.

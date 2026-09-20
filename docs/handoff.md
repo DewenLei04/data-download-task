@@ -1,10 +1,10 @@
-# Local review and next steps
+# Deployment and next steps
 
 The current local site is at http://127.0.0.1:8765 while the Flask process is running.
-Start it again with the README command when needed. Review the year accordion, station-search tabs and
-download links before connecting Vercel.
+Start it again with the README command when needed. The production site is
+https://data-download-task.vercel.app and can be accessed without logging in.
 
-## Vercel, when the owner is ready
+## Vercel deployment
 
 Use **one Vercel project** with Root Directory **`website`**. All three sites live at the
 same origin under `/v1/transport`, `/v1/climate` and `/v1/corgis`; additional sites can follow the
@@ -14,26 +14,27 @@ projects/domains are desired.
 The app follows [Vercel's Flask deployment convention](https://vercel.com/docs/frameworks/backend/flask):
 `app.py` exposes `app`, `requirements.txt` declares Flask, and `public/` holds static
 assets. `vercel.json` adds download and immutable-cache headers. No custom build command
-or secrets are required. Do not deploy the repository root. No Vercel account connection,
-project creation or deployment was attempted in this session.
+or secrets are required. The owner connected GitHub and deployed the project with
+`website/` as its root. Pushing changes to the connected branch updates the deployment.
 
-After deployment, confirm that protection does not require Vercel login for the agent.
-Run the GUI test against the actual public HTTPS address to verify CDN headers and
-browser downloads as well as Flask routes:
+Production checks passed: anonymous page access, all six immutable download hashes,
+26 browser download events, seven shipped oracle navigation functions and 390px
+document overflow checks. Source/audit/task paths return 404. Reports are in
+`reports/gui-validation.json` and `reports/vercel-validation.json`. To repeat:
 
 ```bash
-uv run python scripts/test_gui.py --base-url https://YOUR-PROJECT.vercel.app
-uv run python scripts/build_tasks.py --base-url https://YOUR-PROJECT.vercel.app
+uv run python scripts/test_gui.py --base-url https://data-download-task.vercel.app
+uv run python scripts/build_tasks.py --base-url https://data-download-task.vercel.app
 ```
 
-This updates only task configuration/reference material, not released file contents.
+The task builder updates configuration/reference material, not released file contents.
 Do not use a changing preview URL for benchmark releases.
 
 ## ALE integration
 
 Reviewed engine revision: `04b0599928317191ca6557847a456a70ab2d0438`.
 Each folder in `tasks/` is self-contained and can be transferred into a task collection.
-Task templates deliberately use a non-routable `.invalid` hostname until configured.
+All seven shipped task manifests now point to the production domain.
 
 | Task | Required downloads |
 | --- | --- |

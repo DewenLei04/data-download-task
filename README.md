@@ -1,7 +1,8 @@
 # Data download tasks
 
 Three reference-style synthetic data websites and seven draft ALE download tasks. The website is complete
-and tested locally. Vercel deployment and model-driven ALE execution are deferred.
+and deployed at https://data-download-task.vercel.app. Production browser downloads
+have been verified; model-driven ALE execution remains pending.
 
 - **TLC Trip Record Data** — `/v1/transport`, three monthly green taxi Parquet extracts.
 - **Historical Climate Data** — `/v1/climate`, Toronto and Vancouver daily CSV exports.
@@ -38,20 +39,20 @@ browser libraries may need Playwright's browser dependency installation.
 | Check | Result |
 | --- | --- |
 | Supplied skill: v4 validation + semantic audit | 6/6 passed |
-| Website and real ALE verifier API tests | 22 passed |
-| Chromium clicks and downloaded-file hashes | 26 downloads passed |
+| Website and real ALE verifier API tests | 23 passed |
+| Production Chromium clicks and downloaded-file hashes | 26 downloads passed |
 | Desktop review and mobile overflow checks | Passed |
 | ALE task lint at `04b0599` | 7 task folders passed |
 | ALE container `validate` | Blocked before execution: base image returns 401 |
 | ALE model-driven GUI run | Not run; model service not configured |
-| Vercel deployment | Not started, as requested |
+| Vercel deployment | Live; anonymous access and all six file hashes verified |
 
 The interfaces reproduce the reference sites’ page structure, colors and typography.
 See [visual references and limits](docs/visual-reference.md).
 
 Host verifier unit tests are **not** a substitute for the full ALE untouched/oracle
 pipeline. The task image, sandbox browser startup and headed oracle remain unverified
-inside ALE. Task URLs deliberately use `.invalid` until configured. Network policy is
+inside ALE. All seven tasks use the production URL above. Network policy is
 an explicitly documented draft limitation, not final benchmark admission.
 
 ## Repository layout
