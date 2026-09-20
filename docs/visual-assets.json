@@ -1,0 +1,40 @@
+{
+  "retrieved_on": "2026-09-20",
+  "assets": [
+    {
+      "path": "website/public/fonts/noto-sans-regular.woff2",
+      "url": "https://fonts.gstatic.com/s/notosans/v25/o-0IIpQlx3QUlC5A4PNr5TRA.woff2",
+      "sha256": "fa5d2912bec294d33c9dc4be4a00a9a5f4ac993049a935f4535ae687e3b08d0b"
+    },
+    {
+      "path": "website/public/fonts/noto-sans-bold.woff2",
+      "url": "https://fonts.gstatic.com/s/notosans/v25/o-0NIpQlx3QUlC5A4PNjXhFVZNyB.woff2",
+      "sha256": "1f3dd8063edfcdb39f4a2163e59dbc73e16a688c59979a4103948fcbf060f385"
+    },
+    {
+      "path": "website/public/fonts/lato-regular.woff2",
+      "url": "https://fonts.gstatic.com/s/lato/v22/S6uyw4BMUTPHjx4wXg.woff2",
+      "sha256": "918b7dc3e2e2d015c16ce08b57bcb64d2253bafc1707658f361e72865498e537"
+    },
+    {
+      "path": "website/public/fonts/lato-bold.woff2",
+      "url": "https://fonts.gstatic.com/s/lato/v22/S6u9w4BMUTPHh6UVSwiPGQ.woff2",
+      "sha256": "c447dd7677b419db7b21dbdfc6277c7816a913ffda76fd2e52702df538de0e49"
+    },
+    {
+      "path": "website/public/brand/canada-signature.svg",
+      "url": "https://climate.weather.gc.ca/vendor/wet/v13.4.0/GCWeb/assets/sig-blk-en.svg",
+      "sha256": "d7fd33aa1d0c712806ca33aa775e37636019b4af46d853062f4115d73c39e4a2"
+    },
+    {
+      "path": "website/public/brand/canada-wordmark.svg",
+      "url": "https://climate.weather.gc.ca/vendor/wet/v13.4.0/GCWeb/assets/wmms-blk.svg",
+      "sha256": "e3f871276a81f087b28dcadca177edf7511d7fdd6c8287c51030c4ac454296ab"
+    },
+    {
+      "path": "website/public/brand/nyc-logo.svg",
+      "url": "https://raw.githubusercontent.com/CityOfNewYork/nyc-core-framework/master/images/nyc-bubble-logo.svg",
+      "sha256": "98023470ef6f81dd51448ec37060e4e18f7f7ecaf57d0f55ec698b3ade26f25a"
+    }
+  ]
+}

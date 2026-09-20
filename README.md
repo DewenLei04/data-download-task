@@ -1,10 +1,10 @@
 # Data download tasks
 
-Two synthetic data websites and six draft ALE download tasks. The website is complete
+Two reference-style synthetic data websites and six draft ALE download tasks. The website is complete
 and tested locally. Vercel deployment and model-driven ALE execution are deferred.
 
-- **Metro Data** — `/v1/transport`, three monthly green taxi Parquet extracts.
-- **Northstar Climate** — `/v1/climate`, Toronto and Vancouver daily CSV exports.
+- **TLC Trip Record Data** — `/v1/transport`, three monthly green taxi Parquet extracts.
+- **Historical Climate Data** — `/v1/climate`, Toronto and Vancouver daily CSV exports.
 - **Collections** — `/`, a starting page linking both websites.
 
 All five public files are skill-generated synthetic dirty datasets, not copied source
@@ -37,13 +37,16 @@ browser libraries may need Playwright's browser dependency installation.
 | Check | Result |
 | --- | --- |
 | Supplied skill: v4 validation + semantic audit | 5/5 passed |
-| Website and real ALE verifier API tests | 17 passed |
-| Chromium clicks and downloaded-file hashes | 12 downloads passed |
+| Website and real ALE verifier API tests | 19 passed |
+| Chromium clicks and downloaded-file hashes | 23 downloads passed |
 | Desktop review and mobile overflow checks | Passed |
 | ALE task lint at `04b0599` | 6 task folders passed |
 | ALE container `validate` | Blocked before execution: base image returns 401 |
 | ALE model-driven GUI run | Not run; model service not configured |
 | Vercel deployment | Not started, as requested |
+
+The interfaces reproduce the reference sites’ page structure, colors and typography.
+See [visual references and limits](docs/visual-reference.md).
 
 Host verifier unit tests are **not** a substitute for the full ALE untouched/oracle
 pipeline. The task image, sandbox browser startup and headed oracle remain unverified
@@ -56,7 +59,7 @@ an explicitly documented draft limitation, not final benchmark admission.
 website/                 only directory to deploy to Vercel
   app.py                 Flask routes and filtering
   public/downloads/v1/   immutable synthetic release files
-  templates/             independent transport and climate interfaces
+  templates/             reference-style transport and climate interfaces
 scripts/                 source acquisition, skill pipeline, release and task builders
   apply_authored_patches.py  exact, reviewed corruption edits; evaluator material
 tasks/                   six self-contained ALE task folders; evaluator material

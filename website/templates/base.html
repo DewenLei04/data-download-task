@@ -1,7 +1,34 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ title }}</title><meta name="description" content="Browse and download synthetic transport and historical climate datasets."><link rel="stylesheet" href="/style.css"></head>
-<body class="{{ theme }}"><a class="skip" href="#main">Skip to content</a>
-<div class="notice">INDEPENDENT SYNTHETIC DATA COLLECTION · Research and evaluation use</div>
-<header><div class="wrap nav"><a class="brand" href="{{ '/v1/transport' if theme=='transport' else '/v1/climate' if theme=='climate' else '/' }}"><span class="brand-icon">{{ 'M' if theme=='transport' else 'N' if theme=='climate' else 'F' }}</span>{{ 'METRO DATA' if theme=='transport' else 'NORTHSTAR' if theme=='climate' else 'FIELDWORK' }}</a><nav aria-label="Main navigation"><a href="/" {{ 'aria-current=page' if theme=='hub' }}>Collections</a><a href="/v1/transport" {{ 'aria-current=page' if theme=='transport' }}>Transport</a><a href="/v1/climate" {{ 'aria-current=page' if theme=='climate' }}>Climate</a></nav></div></header>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="description" content="Research replicas of public data websites, serving synthetic datasets.">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/interface.js" defer></script>
+</head>
+<body class="{{ theme }}">
+<a class="skip" href="#main">Skip to main content</a>
+{% if theme == 'transport' %}
+<header class="tlc-header">
+  <div class="city-bar"><div class="tlc-width"><a href="/" aria-label="Collections"><img src="/brand/nyc-logo.svg" alt="NYC"></a><strong>Taxi &amp; Limousine Commission</strong><span class="replica-label">Research replica · synthetic data</span></div></div>
+  <div class="agency-heading tlc-width"><a class="agency-logo" href="/v1/transport"><span class="nyc-yellow" aria-hidden="true"></span><strong>Taxi &amp; Limousine Commission</strong></a><div class="agency-tools"><a href="/">Collections</a><a href="/v1/climate">Climate</a><button class="text-size" type="button" data-text-size>Text-Size</button></div></div>
+  <nav class="tlc-primary" aria-label="Agency navigation"><div class="tlc-width"><a class="home-icon" href="/" aria-label="Collections home">⌂</a><a class="selected" href="/v1/transport">About</a><span>Passengers</span><span>Drivers</span><span>Vehicles</span><span>Businesses</span><span>TLC Online</span></div></nav>
+  <nav class="tlc-secondary" aria-label="About TLC"><div class="tlc-width"><a href="/v1/transport#about-archive">About TLC</a><a class="selected" href="/v1/transport">Data and Reports</a><a href="/v1/transport#data-dictionaries">Data Dictionaries</a><a href="/v1/transport#download-links">Trip Records</a></div></nav>
+</header>
+{% elif theme == 'climate' %}
+<header class="gc-header">
+  <div class="gc-width gc-banner"><span class="gc-replica">Research replica · synthetic data</span><a class="gc-signature" href="/v1/climate"><img src="/brand/canada-signature.svg" alt="Government of Canada — research replica"></a><form class="gc-site-search" action="/v1/climate"><label class="sr-only" for="site-search">Search station data</label><input id="site-search" name="q" placeholder="Search station data"><button aria-label="Search" type="submit"><span class="search-icon" aria-hidden="true"></span></button></form></div>
+  <div class="gc-menu-line"><div class="gc-width"><details class="gc-menu"><summary>MENU <span aria-hidden="true">⌄</span></summary><nav aria-label="Collections menu"><a href="/">Collections</a><a href="/v1/climate">Historical Data</a><a href="/v1/transport">Transport</a></nav></details></div></div>
+  <nav class="gc-width gc-breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/v1/climate">Environment and natural resources</a><span>›</span><a href="/v1/climate">Weather, Climate and Hazard</a><span>›</span><a href="/v1/climate">Past weather and climate</a></nav>
+</header>
+{% else %}
+<header class="directory-header"><div class="gc-width"><a href="/">Data download collections</a><nav aria-label="Main navigation"><a href="/v1/transport">Transport</a><a href="/v1/climate">Climate</a></nav></div></header>
+{% endif %}
 <main id="main">{% block content %}{% endblock %}</main>
-<footer class="wrap"><span>Fieldwork collections <span class="dot">/</span> Release v1</span><span>Synthetic observations. Not official records.</span></footer></body></html>
+{% if theme == 'climate' %}
+<footer class="gc-footer"><div class="gc-footer-context"><div class="gc-width"><h2>Environment and natural resources</h2><div class="footer-links"><a href="/v1/climate">Historical data</a><a href="/v1/climate?browse=1">Available stations</a><a href="/">Data collections</a></div></div></div><div class="gc-footer-main"><div class="gc-width"><h2>About this research website</h2><p>This is an independent replica for data-download research. It is not a Government of Canada service.</p><div class="footer-links"><a href="/v1/transport">Transport data</a><a href="/v1/climate">Climate data</a><a href="/">All collections</a></div></div></div><div class="gc-footer-bottom gc-width"><span>Synthetic observations · Release v1</span><img src="/brand/canada-wordmark.svg" alt="Canada — reference-site wordmark"></div></footer>
+{% elif theme == 'transport' %}
+<footer class="tlc-footer"><div class="tlc-width"><img src="/brand/nyc-logo.svg" alt="NYC — reference-site wordmark"><div><a href="/">Collections</a><a href="/v1/transport">Trip records</a><a href="/v1/climate">Climate data</a><p>Independent research replica. Not an NYC government service. All downloadable observations are synthetic.</p></div></div></footer>
+{% else %}<footer class="gc-width directory-footer">Research replicas · Synthetic datasets · Release v1</footer>{% endif %}
+</body></html>

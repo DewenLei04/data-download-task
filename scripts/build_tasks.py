@@ -12,32 +12,32 @@ TASKS = [
     (
         "transport-january",
         ["green-2023-01"],
-        "Find the Metro Data green taxi trip extract for January 2023 and download its Parquet file.",
+        "Find the TLC Trip Record Data green taxi trip extract for January 2023 and download its Parquet file.",
     ),
     (
         "transport-quarter",
         ["green-2023-01", "green-2023-02", "green-2023-03"],
-        "Collect the Metro Data green taxi trip extracts for the first quarter of 2023. Download all three monthly Parquet files.",
+        "Collect the TLC Trip Record Data green taxi trip extracts for the first quarter of 2023. Download all three monthly Parquet files.",
     ),
     (
         "transport-comparison",
         ["green-2023-01", "green-2023-03"],
-        "Prepare the Metro Data green taxi extracts for a January-versus-March 2023 comparison. Download the two monthly Parquet files.",
+        "Prepare the TLC Trip Record Data green taxi extracts for a January-versus-March 2023 comparison. Download the two monthly Parquet files.",
     ),
     (
         "climate-toronto",
         ["toronto-2023"],
-        "Find the Northstar daily climate dataset for Toronto International A in Ontario for 2023. Download its CSV file.",
+        "Find the Historical Data daily climate dataset for Toronto International A in Ontario for 2023. Download its CSV file.",
     ),
     (
         "climate-two-stations",
         ["toronto-2023", "vancouver-2023"],
-        "Collect the Northstar 2023 daily climate CSV files for Toronto International A in Ontario and Vancouver International A in British Columbia.",
+        "Collect the Historical Data 2023 daily climate CSV files for Toronto International A in Ontario and Vancouver International A in British Columbia.",
     ),
     (
         "cross-collection",
         ["green-2023-01", "toronto-2023"],
-        "Collect two inputs for separate analyses: the Metro Data January 2023 green taxi Parquet extract and the Northstar Toronto International A 2023 daily climate CSV. The transport and climate records refer to different cities; no geographic join is requested.",
+        "Collect two inputs for separate analyses: the TLC Trip Record Data January 2023 green taxi Parquet extract and the Historical Data Toronto International A 2023 daily climate CSV. The transport and climate records refer to different cities; no geographic join is requested.",
     ),
 ]
 

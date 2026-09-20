@@ -1,4 +1,4 @@
-"""Two independent data portals, deployed together as one Flask application."""
+"""Two reference-style data portals, deployed together as one Flask application."""
 
 import json
 from pathlib import Path
@@ -11,7 +11,7 @@ app = Flask(__name__, root_path=str(ROOT), static_folder="public", static_url_pa
 
 @app.get("/")
 def home():
-    return render_template("home.html", theme="hub", title="Fieldwork · Data collections")
+    return render_template("home.html", theme="hub", title="Research data collections")
 
 
 @app.get("/v1/transport")
@@ -23,7 +23,7 @@ def transport():
     return render_template(
         "transport.html",
         theme="transport",
-        title="Metro Data · Trip archive",
+        title="TLC Trip Record Data · Research replica",
         items=items,
         month=period,
     )
@@ -32,6 +32,18 @@ def transport():
 @app.get("/v1/climate")
 def climate():
     province, station, year = (request.args.get(k, "") for k in ("province", "station", "year"))
+    query = request.args.get("q", "").strip()
+    match = request.args.get("match", "contains")
+    limit = request.args.get("limit", 25, type=int)
+    limit = limit if limit in (10, 25, 50) else 25
+    searched = any(
+        key in request.args for key in ("q", "province", "station", "year", "searched", "browse")
+    )
+
+    def name_matches(item):
+        name = item["title"].casefold()
+        return name.startswith(query.casefold()) if match == "begins" else query.casefold() in name
+
     items = [
         d
         for d in CATALOG
@@ -39,15 +51,21 @@ def climate():
         and (not province or d["province"] == province)
         and (not station or d["station"] == station)
         and (not year or d["period"] == year)
+        and name_matches(d)
     ]
     return render_template(
         "climate.html",
         theme="climate",
-        title="Northstar · Historical climate",
-        items=items,
+        title="Historical Data · Research replica",
+        items=items[:limit],
         province=province,
         station=station,
         year=year,
+        query=query,
+        match=match,
+        limit=limit,
+        searched=searched,
+        tab=request.args.get("tab", "province" if province else "name"),
     )
 
 

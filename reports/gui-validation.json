@@ -1,34 +1,61 @@
 {
-  "test_kind": "scripted Chromium GUI, not an ALE model run",
+  "test_kind": "host Chromium GUI; not an ALE sandbox/model run",
   "passed": true,
   "datasets": [
     {
       "id": "green-2023-01",
-      "surface": "archive",
+      "surface": "year accordion",
       "passed": true
     },
     {
       "id": "green-2023-02",
-      "surface": "archive",
+      "surface": "year accordion",
       "passed": true
     },
     {
       "id": "green-2023-03",
-      "surface": "archive",
+      "surface": "year accordion",
       "passed": true
     },
     {
       "id": "toronto-2023",
-      "surface": "detail",
+      "surface": "station-name search and detail",
       "passed": true
     },
     {
       "id": "vancouver-2023",
-      "surface": "detail",
+      "surface": "station-name search and detail",
       "passed": true
     }
   ],
-  "download_events": 12,
+  "oracle_navigation": [
+    {
+      "task": "climate-toronto",
+      "host_browser_navigation_passed": true
+    },
+    {
+      "task": "climate-two-stations",
+      "host_browser_navigation_passed": true
+    },
+    {
+      "task": "cross-collection",
+      "host_browser_navigation_passed": true
+    },
+    {
+      "task": "transport-comparison",
+      "host_browser_navigation_passed": true
+    },
+    {
+      "task": "transport-january",
+      "host_browser_navigation_passed": true
+    },
+    {
+      "task": "transport-quarter",
+      "host_browser_navigation_passed": true
+    }
+  ],
+  "download_events": 23,
   "mobile_width": 390,
-  "page_errors": []
+  "page_errors": [],
+  "external_requests": []
 }

@@ -1,9 +1,11 @@
 # Development plan
 
-Build two independently designed, GUI-accessible data websites in one deployable
+Reproduce two reference-site layouts and styles as GUI-accessible data websites in one deployable
 Flask application. Every published dataset must be newly generated with the supplied
 generate-contextual-dirty-data skill; original downloads are reference inputs only.
-Prominent, keyboard-accessible download links must trigger real browser downloads.
+Keyboard-accessible download links in the reference-style archive/search flow must
+trigger real browser downloads. Preserve the reference typography, spacing, navigation
+and colors; simplify unrelated services and unsupported data coverage only.
 
 1. Review ALE contracts, execution, GUI, images, networking, artifacts and verification.
 2. Acquire bounded historical source snapshots and record provenance.

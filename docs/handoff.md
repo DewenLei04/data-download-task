@@ -1,8 +1,8 @@
 # Local review and next steps
 
 The current local site is at http://127.0.0.1:8765 while the Flask process is running.
-Start it again with the README command when needed. Review the visible filters and
-Download buttons before connecting Vercel.
+Start it again with the README command when needed. Review the year accordion, station-search tabs and
+download links before connecting Vercel.
 
 ## Vercel, when the owner is ready
 
@@ -52,7 +52,9 @@ Extra output files are permitted, as stated in the instructions.
 The task instruction states the outcome; it does not claim the hash verifier proves
 GUI-only behavior. Use ALE's `computer-use` harness to evaluate GUI capability and
 review screenshots/actions in `trajectory.json`. The oracle uses actual browser links
-through Playwright, but is a scripted reference solver, not a model.
+through Playwright, but is a scripted reference solver, not a model. Its navigation
+functions have been exercised for all six tasks in host Chromium after the visual
+revision; headed sandbox execution is still unverified.
 
 The image adds pinned Playwright 1.63.0 and its Chromium browser to ALE's desktop base.
 Setup configures a user-owned download directory and starts a visible browser. The

@@ -13,9 +13,11 @@ The skill works only on the resulting local input files.
 - [ECCC Historical Data](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html):
   station/province/date selection and daily CSV exports. Its HTML is retained privately.
 
-Only interaction patterns and source schemas informed these sites. Names, layout,
-colors and illustrations were created for this project; original logos and page assets
-are not republished. The synthetic-data notice appears on every page.
+The interfaces follow the reference page layouts, navigation, typography and colors.
+The Canada header marks and NYC wordmark are stored locally with source attribution;
+fonts are bundled with their OFL notices. Each page identifies the site as a research
+replica and the observations as synthetic. See [visual-reference.md](visual-reference.md)
+for screenshot evidence, exact assets, and the limits of the TLC reference.
 
 ## Local skill inputs
 

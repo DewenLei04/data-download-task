@@ -54,3 +54,25 @@ def test_filters_and_empty_state(client):
 )
 def test_private_and_invalid_paths(client, path):
     assert client.get(path).status_code == 404
+
+
+def test_station_name_search_modes(client):
+    contains = client.get("/v1/climate?q=ONTO&match=contains").text
+    assert "Toronto International A · 2023" in contains
+    assert "Vancouver International A · 2023" not in contains
+    begins = client.get("/v1/climate?q=onto&match=begins").text
+    assert "No matching stations" in begins
+    prefix = client.get("/v1/climate?q=VAN&match=begins&year=2023").text
+    assert "Vancouver International A · 2023" in prefix
+    assert "Toronto International A · 2023" not in prefix
+
+
+def test_initial_search_then_browse(client):
+    initial = client.get("/v1/climate").text
+    assert "Station Search Results" not in initial
+    browse = client.get("/v1/climate?browse=1").text
+    assert "Toronto International A · 2023" in browse
+    assert "Vancouver International A · 2023" in browse
+    assert (
+        "No matching stations" in client.get("/v1/climate?q=Toronto&province=British+Columbia").text
+    )

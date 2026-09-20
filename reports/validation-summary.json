@@ -59,13 +59,14 @@
     }
   ],
   "pytest": {
-    "passed": 17,
+    "passed": 19,
     "failed": 0
   },
   "gui": {
-    "download_events": 12,
+    "download_events": 23,
     "all_hashes_match": true,
-    "mobile_overflow": false
+    "mobile_overflow": false,
+    "host_oracle_navigation_tasks": 6
   },
   "ale_lint": {
     "passed": true,
@@ -81,5 +82,6 @@
   },
   "vercel": {
     "status": "deferred_by_user"
-  }
+  },
+  "visual_revision_date": "2026-09-20"
 }
