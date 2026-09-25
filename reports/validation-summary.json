@@ -86,13 +86,13 @@
   },
   "ale_validate": {
     "status": "passed_on_local_bridge_site",
-    "run_id": "validate-22473053",
+    "run_id": "validate-4028e976",
     "tasks_passed": 7,
     "episodes": 14,
     "untouched_all_zero": true,
     "oracle_all_one": true,
     "scope": "same website code and release files as production; params.site_url points at local Docker bridge",
-    "production_status": "single earlier-revision CORGIS pass; full current-revision run pending stable Vercel egress",
+    "production_status": "Current-revision CORGIS passed directly; full current-revision run interrupted after Vercel egress timeouts",
     "report": "ale-validation.json"
   },
   "model_gui": {
@@ -107,5 +107,15 @@
     "browser_download_events": 26,
     "report": "vercel-validation.json"
   },
-  "visual_revision_date": "2026-09-20"
+  "visual_revision_date": "2026-09-20",
+  "cua_desktop": {
+    "status": "local_image_smoke_passed",
+    "checks": [
+      "initialize",
+      "tool list",
+      "screenshot PNG",
+      "mouse move"
+    ],
+    "model_used": false
+  }
 }

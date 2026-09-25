@@ -50,7 +50,7 @@ The owner subsequently authorized and completed Vercel deployment. Production
 https://data-download-task.vercel.app passed host browser download validation, and
 all seven task URLs now point there. ALE validated all seven tasks against the identical
 site served on the local Docker bridge: untouched rewards were zero and headed oracle
-rewards were one. One earlier-revision CORGIS task also passed against the production
-origin using a host Docker proxy. The current full task set has not passed a production
+rewards were one. The current CORGIS task also passed directly against the production
+origin. The current full task set has not passed a production
 ALE run because this host intermittently cannot reach the Vercel edge. Model-driven
 GUI execution still needs a configured model service. See `reports/ale-validation.json`.

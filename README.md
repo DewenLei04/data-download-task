@@ -45,7 +45,7 @@ browser libraries may need Playwright's browser dependency installation.
 | Desktop review and mobile overflow checks | Passed |
 | ALE task lint at `04b0599` | 7 task folders passed |
 | ALE container `validate` | 7/7 passed against local bridge site (14 episodes) |
-| Production-origin ALE `validate` | CORGIS passed on an earlier task revision; full current run pending stable egress |
+| Production-origin ALE `validate` | Current CORGIS task passed directly; full run pending stable egress |
 | ALE model-driven GUI run | Not run; model service not configured |
 | Vercel deployment | Live; anonymous access and all six file hashes verified |
 

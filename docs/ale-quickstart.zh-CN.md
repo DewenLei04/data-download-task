@@ -31,7 +31,7 @@ uv run ale validate ../data-download-task/tasks \
 验证结果和运行记录。完整运行目录被 Git 忽略，需另行保存；公开摘要放在 `reports/`。
 
 截至 2026-09-25，七个任务已通过本地同源网站的完整容器验证，运行 ID 为
-`validate-22473053`。使用生产域名的 CORGIS 单任务曾在较早脚本版本通过；
+`validate-4028e976`。当前版本的 CORGIS 单任务已直接通过生产域名验证；
 完整生产域名验证因本机到部分 Vercel 边缘地址连接超时尚未通过。
 具体结果见 [`ale-validation.json`](../reports/ale-validation.json)。
 
@@ -44,7 +44,35 @@ uv run ale validate ../data-download-task/tasks \
 生成临时任务副本，对 `.local/tasks` 执行 `ale validate`。详见
 [`handoff.md`](handoff.md)。临时任务地址不能当作生产地址提交。
 
-## 配置模型后再验证 GUI agent
+## 用 Codex 订阅运行真实 GUI agent
+
+这台机器的普通 Codex CLI 已登录 ChatGPT，但 ALE 根据自己的
+[`subscription-auth` 指南](https://github.com/AgentsLastExam/ale/blob/04b0599928317191ca6557847a456a70ab2d0438/docs/guides/subscription-auth.md)
+只读取 ALE checkout 专用的登录文件。你需要在 `ale/` 目录执行一次：
+
+```bash
+CODEX_HOME="$PWD/.ale/auth/codex-cli" codex login
+chmod 0600 .ale/auth/codex-cli/auth.json
+CODEX_HOME="$PWD/.ale/auth/codex-cli" codex login status
+```
+
+登录会打开浏览器；完成后告诉我“已登录”，不要发送登录文件或令牌。
+普通 `~/.codex` 登录不应复制到这里。之后在同一目录运行：
+
+```bash
+uv run ale run ../data-download-task/tasks/corgis-airlines \
+  --agent codex-cli --auth subscription --model gpt-5.6-luna \
+  --set 'agent.mcp_servers=[{ builtin = "cua-desktop" }]' \
+  --runs-dir ../data-download-task/reports/runs
+```
+
+`cua-desktop` 给 agent 提供屏幕截图、点击和键盘输入。任务指令要求使用
+可见浏览器的网页入口下载。运行后需同时检查评分、`trajectory.json` 中的
+桌面工具调用、截图和 `/home/user/output/` 中的文件；只看文件哈希不足以证明
+agent 使用了 GUI。上面的命令和模型名称已按本机 ALE `04b0599` 的配置格式
+检查，但目前尚未完成专用登录，因此尚未运行真实模型回合。
+
+## 使用其他模型服务
 
 本次审阅的 ALE `04b0599` 的 `computer-use` harness 使用 Anthropic messages
 兼容的 computer-use 服务。确定服务地址和支持的模型后，在主机环境设置密钥，执行：

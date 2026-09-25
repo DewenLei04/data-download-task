@@ -2,10 +2,10 @@
   "date": "2026-09-25",
   "ale_engine_commit": "04b0599928317191ca6557847a456a70ab2d0438",
   "full_validation": {
-    "run_id": "validate-22473053",
+    "run_id": "validate-4028e976",
     "task_origin": "http://172.17.0.1:8765",
     "site_source": "same website/app.py and six published website/public/downloads/v1 files as production",
-    "run_directory": "reports/runs/validate-22473053",
+    "run_directory": "reports/runs/validate-4028e976",
     "tasks_passed": 7,
     "untouched_and_oracle_episodes": 14,
     "image_observed_identity": "sha256:d2485a8ca4c87f73e7baadfbac25fdfbd270abaa40c45b52cecc3c58ba60399e",
@@ -140,14 +140,14 @@
     ]
   },
   "production_validation": {
-    "run_id": "validate-b57fb26e",
+    "run_id": "validate-c32fef90",
     "task": "corgis-airlines",
     "passed": true,
-    "condition": "host Docker HTTPS proxy for this ALE run",
-    "scope": "single task on the prior task script revision; all seven current tasks were not validated against production"
+    "condition": "direct Docker egress, no host proxy",
+    "scope": "single current-revision CORGIS task passed; full current-revision production run later hit intermittent Vercel connection timeouts"
   },
   "limitations": [
-    "Production Vercel origin intermittently timed out from this host and Docker containers during later runs; complete current-revision production ALE validation is pending a stable connection.",
+    "Full current-revision production ALE validation did not complete: this host and its Docker containers intermittently timed out connecting to the Vercel edge. Two climate tasks passed in the interrupted all-task attempt.",
     "No model service or API key was configured, so model-driven GUI runs were not performed.",
     "ALE desktop base was built locally from source with verified cached downloads, rather than pulled from the published GHCR tag."
   ],
@@ -155,5 +155,16 @@
     "gui-validation.json",
     "vercel-validation.json",
     "ale-base-provenance.json"
-  ]
+  ],
+  "desktop_mcp": {
+    "status": "passed_without_model",
+    "checks": [
+      "initialize",
+      "tool list includes screenshot, click, type and mouse_move",
+      "PNG screenshot",
+      "mouse move"
+    ],
+    "image_identity": "sha256:d2485a8ca4c87f73e7baadfbac25fdfbd270abaa40c45b52cecc3c58ba60399e",
+    "note": "Direct ALE DockerProvider and staged cua-desktop check using the locally prepared task image; the repository integration test could not pull the published GHCR base on this host."
+  }
 }

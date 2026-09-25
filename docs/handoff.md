@@ -88,14 +88,14 @@ address as the production task URL.
 - `ale lint` passes. All seven tasks passed full `ale validate` against the same site
   and released files on `http://172.17.0.1:8765`: seven untouched episodes scored
   all zero and seven headed oracle episodes scored all one. The run is
-  `reports/runs/validate-22473053`; its public summary is `reports/ale-validation.json`.
+  `reports/runs/validate-4028e976`; its public summary is `reports/ale-validation.json`.
 - The published ALE desktop base returned 401 from anonymous GHCR access. A local
   source build succeeded using checksum-verified cached assets and the original desktop
   services. `reports/ale-base-provenance.json` records its changes and observed ID.
   This is a local build, not proof of the published image's digest.
-- One CORGIS production-origin ALE run passed on a prior task-script revision with a
-  host Docker proxy. Later production ALE runs timed out on this host's route to some
-  Vercel edge addresses, including a host-side `curl`. Full validation of the current
+- The current CORGIS task passed a direct production-origin ALE run with no host proxy.
+  A later full production run timed out on this host's route to some Vercel edge
+  addresses, including a host-side `curl`. Full validation of the current
   tasks against the production URL remains pending a stable connection. Production
   host Chromium still completed 26 download events and matched the release hashes.
 - Networking is temporarily `open`. At this engine revision the setup browser does
@@ -103,8 +103,12 @@ address as the production task URL.
   the oracle proxy. This is recorded in task metadata. Before benchmark admission,
   adapt the runner/browser proxy flow and verify an allowlist for the hosted origin,
   or have the benchmark owner explicitly accept the open-network task design.
-- No model service/key is configured. Once available, use a computer-use-compatible
-  Anthropic-messages endpoint and its supported model (do not invent a model name):
+- No ALE checkout-local model login or API key is configured. The host's ordinary Codex
+  CLI is already signed into ChatGPT. ALE can run `codex-cli` in subscription mode with
+  the `cua-desktop` MCP after a separate checkout-local browser login. Exact commands
+  and the GUI evidence checks are in `docs/ale-quickstart.zh-CN.md`.
+- Alternatively, use a computer-use-compatible Anthropic-messages endpoint and its
+  supported model (do not invent a model name):
 
 ```bash
 uv run ale run ../data-download-task/tasks/transport-january \
