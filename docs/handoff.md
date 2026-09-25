@@ -85,28 +85,38 @@ address as the production task URL.
 
 ## Observed blockers and acceptance gates
 
-- `ale lint` passes. All seven tasks passed full `ale validate` against the same site
-  and released files on `http://172.17.0.1:8765`: seven untouched episodes scored
-  all zero and seven headed oracle episodes scored all one. The run is
-  `reports/runs/validate-4028e976`; its public summary is `reports/ale-validation.json`.
+- `ale lint` passes. After the desktop setup change, all seven tasks passed full
+  `ale validate` against the same site and released files on
+  `http://172.17.0.1:8765`: seven untouched episodes scored all zero and seven headed
+  oracle episodes scored all one. The current run is
+  `reports/runs/validate-5a12c9be`; its public summary is `reports/ale-validation.json`.
 - The published ALE desktop base returned 401 from anonymous GHCR access. A local
   source build succeeded using checksum-verified cached assets and the original desktop
   services. `reports/ale-base-provenance.json` records its changes and observed ID.
   This is a local build, not proof of the published image's digest.
-- The current CORGIS task passed a direct production-origin ALE run with no host proxy.
-  A later full production run timed out on this host's route to some Vercel edge
-  addresses, including a host-side `curl`. Full validation of the current
-  tasks against the production URL remains pending a stable connection. Production
-  host Chromium still completed 26 download events and matched the release hashes.
+- An earlier CORGIS task image passed a direct production-origin ALE reference run
+  with no host proxy. The updated image's CORGIS reference run passed the untouched
+  case but timed out loading the production page in the oracle. This host's route to
+  some Vercel edge addresses is intermittent. Full production-origin reference
+  validation remains pending a stable connection. Production host Chromium completed
+  26 download events, and three real model GUI runs against production passed.
 - Networking is temporarily `open`. At this engine revision the setup browser does
   not inherit the agent-phase authenticated proxy, and CLI validation does not provide
   the oracle proxy. This is recorded in task metadata. Before benchmark admission,
   adapt the runner/browser proxy flow and verify an allowlist for the hosted origin,
   or have the benchmark owner explicitly accept the open-network task design.
-- No ALE checkout-local model login or API key is configured. The host's ordinary Codex
-  CLI is already signed into ChatGPT. ALE can run `codex-cli` in subscription mode with
-  the `cua-desktop` MCP after a separate checkout-local browser login. Exact commands
-  and the GUI evidence checks are in `docs/ale-quickstart.zh-CN.md`.
+- ALE checkout-local ChatGPT subscription login is configured on this host. Three real
+  `gpt-5.6-luna` / Codex CLI GUI episodes completed against the production CORGIS,
+  TLC and climate pages: each overall reward is 1.0, all JSON/Parquet/CSV hashes
+  match, and every agent tool call used CUA. See `reports/model-gui-validation.json`.
+  The remaining four multi-file or cross-collection tasks have no model run yet.
+  This local-path result is not reportable as a re-fetchable benchmark RunLock.
+- This host repeatedly lost the npm Linux Codex executable download, so that model
+  episode used a test-only local image with preinstalled Codex CLI 0.139.0. The local
+  ALE base's GNOME desktop layer obscured application windows; Openbox resolved that
+  in screenshot preflight and is now installed and started by all seven task images.
+  The task setup also starts Cua Driver before the agent begins. Exact commands and
+  GUI evidence checks are in `docs/ale-quickstart.zh-CN.md`.
 - Alternatively, use a computer-use-compatible Anthropic-messages endpoint and its
   supported model (do not invent a model name):
 

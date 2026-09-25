@@ -48,9 +48,12 @@ recorded in `reports/ale-base-provenance.json`. No model credential was provided
 
 The owner subsequently authorized and completed Vercel deployment. Production
 https://data-download-task.vercel.app passed host browser download validation, and
-all seven task URLs now point there. ALE validated all seven tasks against the identical
-site served on the local Docker bridge: untouched rewards were zero and headed oracle
-rewards were one. The current CORGIS task also passed directly against the production
-origin. The current full task set has not passed a production
-ALE run because this host intermittently cannot reach the Vercel edge. Model-driven
-GUI execution still needs a configured model service. See `reports/ale-validation.json`.
+all seven task URLs now point there. After the Openbox desktop setup change, ALE
+validated all seven tasks against the identical site served on the local Docker
+bridge: untouched rewards were zero and headed oracle rewards were one. An earlier
+CORGIS image revision also passed a direct production-origin reference run. The
+current full task set has not passed a production-origin reference run because this
+host intermittently cannot reach the Vercel edge. The owner later completed ALE's
+checkout-local ChatGPT subscription login, and real `gpt-5.6-luna` GUI runs downloaded
+the JSON, Parquet and CSV files from the production website with full scores and
+matching hashes. See `reports/ale-validation.json` and `reports/model-gui-validation.json`.

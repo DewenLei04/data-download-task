@@ -137,24 +137,27 @@
           "overall": 1.0
         }
       }
-    ]
+    ],
+    "revision_note": "Earlier task image revision, before Openbox desktop setup."
   },
   "production_validation": {
     "run_id": "validate-c32fef90",
     "task": "corgis-airlines",
     "passed": true,
     "condition": "direct Docker egress, no host proxy",
-    "scope": "single current-revision CORGIS task passed; full current-revision production run later hit intermittent Vercel connection timeouts"
+    "scope": "Earlier task image revision: direct Docker egress, no host proxy, CORGIS task passed."
   },
   "limitations": [
     "Full current-revision production ALE validation did not complete: this host and its Docker containers intermittently timed out connecting to the Vercel edge. Two climate tasks passed in the interrupted all-task attempt.",
-    "No model service or API key was configured, so model-driven GUI runs were not performed.",
-    "ALE desktop base was built locally from source with verified cached downloads, rather than pulled from the published GHCR tag."
+    "ALE desktop base was built locally from source with verified cached downloads, rather than pulled from the published GHCR tag.",
+    "Three representative tasks passed real GUI model runs against production (JSON, Parquet and CSV); four composite or multi-file tasks have no model run yet.",
+    "The real model runs used a local test image with preinstalled Codex CLI 0.139.0 because npm optional executable downloads failed on this host; ALE marks local task paths not reportable."
   ],
   "related_reports": [
     "gui-validation.json",
     "vercel-validation.json",
-    "ale-base-provenance.json"
+    "ale-base-provenance.json",
+    "model-gui-validation.json"
   ],
   "desktop_mcp": {
     "status": "passed_without_model",
@@ -166,5 +169,23 @@
     ],
     "image_identity": "sha256:d2485a8ca4c87f73e7baadfbac25fdfbd270abaa40c45b52cecc3c58ba60399e",
     "note": "Direct ALE DockerProvider and staged cua-desktop check using the locally prepared task image; the repository integration test could not pull the published GHCR base on this host."
+  },
+  "post_desktop_fix_validation": {
+    "run_id": "validate-5a12c9be",
+    "task_origin": "http://172.17.0.1:8765",
+    "site_source": "same website code and six released files as production",
+    "run_directory": "reports/runs/validate-5a12c9be",
+    "tasks_passed": 7,
+    "untouched_and_oracle_episodes": 14,
+    "untouched_all_zero": true,
+    "oracle_all_one": true,
+    "image_observed_identity": "sha256:22aeaa497f64c45d773151c037491c98d333bd8a3151a70031166776a1bcb380",
+    "scope": "updated seven task images with Openbox and task-started Cua Driver"
+  },
+  "latest_production_validation": {
+    "run_id": "validate-bb21cad0",
+    "task": "corgis-airlines",
+    "outcome": "untouched passed; oracle timed out loading the Vercel CORGIS page from this host",
+    "environment_issue": "intermittent Vercel edge connectivity on this host"
   }
 }

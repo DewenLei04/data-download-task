@@ -6,3 +6,5 @@ RUN python3 /opt/task-build/install_python.py
 RUN python3 -m playwright install --with-deps chromium \
     && chmod -R a+rX /opt/playwright \
     && install -d -o user -g user /home/user/output
+RUN apt-get install -y --no-install-recommends openbox \
+    && rm -rf /var/lib/apt/lists/*

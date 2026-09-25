@@ -86,18 +86,32 @@
   },
   "ale_validate": {
     "status": "passed_on_local_bridge_site",
-    "run_id": "validate-4028e976",
+    "run_id": "validate-5a12c9be",
     "tasks_passed": 7,
     "episodes": 14,
     "untouched_all_zero": true,
     "oracle_all_one": true,
-    "scope": "same website code and release files as production; params.site_url points at local Docker bridge",
-    "production_status": "Current-revision CORGIS passed directly; full current-revision run interrupted after Vercel egress timeouts",
+    "scope": "same website code and release files as production; updated Openbox task images; params.site_url points at local Docker bridge",
+    "production_status": "Real GUI model runs for three tasks passed against production; latest CORGIS oracle validation timed out on this host’s route to Vercel",
     "report": "ale-validation.json"
   },
   "model_gui": {
-    "status": "not_run",
-    "reason": "No model service configured"
+    "status": "three_representative_tasks_passed",
+    "tasks": [
+      "corgis-airlines",
+      "transport-january",
+      "climate-toronto"
+    ],
+    "formats": [
+      "JSON",
+      "Parquet",
+      "CSV"
+    ],
+    "model": "gpt-5.6-luna",
+    "all_download_hashes_match": true,
+    "non_gui_agent_tool_calls": 0,
+    "report": "model-gui-validation.json",
+    "reportable": false
   },
   "vercel": {
     "status": "deployed_and_verified",

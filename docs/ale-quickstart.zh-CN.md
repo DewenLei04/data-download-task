@@ -30,9 +30,10 @@ uv run ale validate ../data-download-task/tasks \
 结果保存在 `reports/runs/validate-*/validation.json`；同一目录下保留每轮的日志、
 验证结果和运行记录。完整运行目录被 Git 忽略，需另行保存；公开摘要放在 `reports/`。
 
-截至 2026-09-25，七个任务已通过本地同源网站的完整容器验证，运行 ID 为
-`validate-4028e976`。当前版本的 CORGIS 单任务已直接通过生产域名验证；
-完整生产域名验证因本机到部分 Vercel 边缘地址连接超时尚未通过。
+截至 2026-09-25，七个任务在桌面启动修正后通过本地同源网站的完整容器验证，
+运行 ID 为 `validate-5a12c9be`。更早版本的 CORGIS 单任务直接通过生产域名
+参考验证；新版 CORGIS 的参考验证因本机到 Vercel 边缘地址连接超时而中断。
+真实模型仍在生产域名上完成了三个代表任务。
 具体结果见 [`ale-validation.json`](../reports/ale-validation.json)。
 
 这些命令需要本机可用的 ALE 桌面基础镜像。公开 GHCR 镜像拉取曾返回 401，
@@ -46,18 +47,21 @@ uv run ale validate ../data-download-task/tasks \
 
 ## 用 Codex 订阅运行真实 GUI agent
 
-这台机器的普通 Codex CLI 已登录 ChatGPT，但 ALE 根据自己的
+ALE 根据自己的
 [`subscription-auth` 指南](https://github.com/AgentsLastExam/ale/blob/04b0599928317191ca6557847a456a70ab2d0438/docs/guides/subscription-auth.md)
-只读取 ALE checkout 专用的登录文件。你需要在 `ale/` 目录执行一次：
+只读取 ALE checkout 专用的登录文件。新机器需要在 `ale/` 目录执行一次：
 
 ```bash
+mkdir -p .ale/auth/codex-cli
 CODEX_HOME="$PWD/.ale/auth/codex-cli" codex login
 chmod 0600 .ale/auth/codex-cli/auth.json
 CODEX_HOME="$PWD/.ale/auth/codex-cli" codex login status
 ```
 
-登录会打开浏览器；完成后告诉我“已登录”，不要发送登录文件或令牌。
-普通 `~/.codex` 登录不应复制到这里。之后在同一目录运行：
+若 WSL 浏览器打开后提示 `localhost` 拒绝连接，改用
+`CODEX_HOME="$PWD/.ale/auth/codex-cli" codex login --device-auth`。
+不要发送登录文件或令牌，也不要复制普通 `~/.codex` 登录文件。
+之后在同一目录运行：
 
 ```bash
 uv run ale run ../data-download-task/tasks/corgis-airlines \
@@ -69,8 +73,18 @@ uv run ale run ../data-download-task/tasks/corgis-airlines \
 `cua-desktop` 给 agent 提供屏幕截图、点击和键盘输入。任务指令要求使用
 可见浏览器的网页入口下载。运行后需同时检查评分、`trajectory.json` 中的
 桌面工具调用、截图和 `/home/user/output/` 中的文件；只看文件哈希不足以证明
-agent 使用了 GUI。上面的命令和模型名称已按本机 ALE `04b0599` 的配置格式
-检查，但目前尚未完成专用登录，因此尚未运行真实模型回合。
+agent 使用了 GUI。七个任务的镜像会安装 Openbox，任务启动时会切换窗口管理器
+并启动桌面驱动；本机源码构建的 ALE 基础镜像里，原 GNOME 桌面层曾遮挡浏览器。
+
+2026-09-25 已完成三个真正的模型回合：`gpt-5.6-luna` 通过 Codex CLI
+`0.139.0` 分别在生产网站下载 CORGIS JSON、TLC Parquet 和气候 CSV，三次
+ALE 评分均为 `1.0`，产物 SHA-256 全部匹配。轨迹只包含桌面工具调用。
+详细结果见
+[`model-gui-validation.json`](../reports/model-gui-validation.json)。这些回合使用了
+与公开任务同指令、同验证规则的本地临时任务副本；由于本机从 npm
+下载 Codex Linux 可执行组件反复失败，临时镜像预装了本机 CLI。
+这证明三个网站各有一次 GUI 模型回合成功，但 ALE 将本地路径标记为不可作为
+可重新获取的正式 benchmark 结果。剩余四个多文件或跨站任务尚未运行模型。
 
 ## 使用其他模型服务
 
