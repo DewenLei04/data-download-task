@@ -1,0 +1,159 @@
+{
+  "date": "2026-09-25",
+  "ale_engine_commit": "04b0599928317191ca6557847a456a70ab2d0438",
+  "full_validation": {
+    "run_id": "validate-22473053",
+    "task_origin": "http://172.17.0.1:8765",
+    "site_source": "same website/app.py and six published website/public/downloads/v1 files as production",
+    "run_directory": "reports/runs/validate-22473053",
+    "tasks_passed": 7,
+    "untouched_and_oracle_episodes": 14,
+    "image_observed_identity": "sha256:d2485a8ca4c87f73e7baadfbac25fdfbd270abaa40c45b52cecc3c58ba60399e",
+    "tasks": [
+      {
+        "task": "climate-toronto",
+        "passed": true,
+        "reward_names": [
+          "toronto_2023",
+          "overall"
+        ],
+        "untouched": {
+          "overall": 0.0,
+          "toronto_2023": 0.0
+        },
+        "oracle": {
+          "overall": 1.0,
+          "toronto_2023": 1.0
+        }
+      },
+      {
+        "task": "climate-two-stations",
+        "passed": true,
+        "reward_names": [
+          "toronto_2023",
+          "vancouver_2023",
+          "overall"
+        ],
+        "untouched": {
+          "overall": 0.0,
+          "toronto_2023": 0.0,
+          "vancouver_2023": 0.0
+        },
+        "oracle": {
+          "overall": 1.0,
+          "toronto_2023": 1.0,
+          "vancouver_2023": 1.0
+        }
+      },
+      {
+        "task": "corgis-airlines",
+        "passed": true,
+        "reward_names": [
+          "airlines_2015",
+          "overall"
+        ],
+        "untouched": {
+          "airlines_2015": 0.0,
+          "overall": 0.0
+        },
+        "oracle": {
+          "airlines_2015": 1.0,
+          "overall": 1.0
+        }
+      },
+      {
+        "task": "cross-collection",
+        "passed": true,
+        "reward_names": [
+          "green_2023_01",
+          "toronto_2023",
+          "overall"
+        ],
+        "untouched": {
+          "green_2023_01": 0.0,
+          "overall": 0.0,
+          "toronto_2023": 0.0
+        },
+        "oracle": {
+          "green_2023_01": 1.0,
+          "overall": 1.0,
+          "toronto_2023": 1.0
+        }
+      },
+      {
+        "task": "transport-comparison",
+        "passed": true,
+        "reward_names": [
+          "green_2023_01",
+          "green_2023_03",
+          "overall"
+        ],
+        "untouched": {
+          "green_2023_01": 0.0,
+          "green_2023_03": 0.0,
+          "overall": 0.0
+        },
+        "oracle": {
+          "green_2023_01": 1.0,
+          "green_2023_03": 1.0,
+          "overall": 1.0
+        }
+      },
+      {
+        "task": "transport-january",
+        "passed": true,
+        "reward_names": [
+          "green_2023_01",
+          "overall"
+        ],
+        "untouched": {
+          "green_2023_01": 0.0,
+          "overall": 0.0
+        },
+        "oracle": {
+          "green_2023_01": 1.0,
+          "overall": 1.0
+        }
+      },
+      {
+        "task": "transport-quarter",
+        "passed": true,
+        "reward_names": [
+          "green_2023_01",
+          "green_2023_02",
+          "green_2023_03",
+          "overall"
+        ],
+        "untouched": {
+          "green_2023_01": 0.0,
+          "green_2023_02": 0.0,
+          "green_2023_03": 0.0,
+          "overall": 0.0
+        },
+        "oracle": {
+          "green_2023_01": 1.0,
+          "green_2023_02": 1.0,
+          "green_2023_03": 1.0,
+          "overall": 1.0
+        }
+      }
+    ]
+  },
+  "production_validation": {
+    "run_id": "validate-b57fb26e",
+    "task": "corgis-airlines",
+    "passed": true,
+    "condition": "host Docker HTTPS proxy for this ALE run",
+    "scope": "single task on the prior task script revision; all seven current tasks were not validated against production"
+  },
+  "limitations": [
+    "Production Vercel origin intermittently timed out from this host and Docker containers during later runs; complete current-revision production ALE validation is pending a stable connection.",
+    "No model service or API key was configured, so model-driven GUI runs were not performed.",
+    "ALE desktop base was built locally from source with verified cached downloads, rather than pulled from the published GHCR tag."
+  ],
+  "related_reports": [
+    "gui-validation.json",
+    "vercel-validation.json",
+    "ale-base-provenance.json"
+  ]
+}

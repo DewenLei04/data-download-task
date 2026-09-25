@@ -55,10 +55,11 @@ The task instruction states the outcome; it does not claim the hash verifier pro
 GUI-only behavior. Use ALE's `computer-use` harness to evaluate GUI capability and
 review screenshots/actions in `trajectory.json`. The oracle uses actual browser links
 through Playwright, but is a scripted reference solver, not a model. Its navigation
-functions have been exercised for all seven tasks in host Chromium after the visual
-revision; headed sandbox execution is still unverified.
+functions have been exercised for all seven tasks in host Chromium and in ALE's headed
+Docker sandbox against the local copy of the same website and release files.
 
-The image adds pinned Playwright 1.63.0 and its Chromium browser to ALE's desktop base.
+The image adds SHA-256 verified Playwright 1.63.0 wheels and its Chromium browser to
+ALE's desktop base. The browser and oracle honor `HTTPS_PROXY` when one is supplied.
 Setup configures a user-owned download directory and starts a visible browser. The
 base still uses upstream `latest`; resolve and pin its digest before a benchmark release.
 
@@ -84,14 +85,19 @@ address as the production task URL.
 
 ## Observed blockers and acceptance gates
 
-- `ale lint` passes. Full `ale validate` was attempted and failed **before either
-  untouched or oracle execution**, while fetching the ALE desktop base: GHCR anonymous
-  token request returned 401 Unauthorized. Building the original base locally also
-  failed while fetching layers with `tls: bad record MAC`. Obtain authorized access
-  to the original image or complete the original source build on a working connection;
-  an arbitrary non-ALE replacement image is not an equivalent validation.
-- Setup's headed Chromium process and the headed oracle have not yet run inside ALE.
-  Host website GUI tests and verifier unit tests do not establish that they work there.
+- `ale lint` passes. All seven tasks passed full `ale validate` against the same site
+  and released files on `http://172.17.0.1:8765`: seven untouched episodes scored
+  all zero and seven headed oracle episodes scored all one. The run is
+  `reports/runs/validate-22473053`; its public summary is `reports/ale-validation.json`.
+- The published ALE desktop base returned 401 from anonymous GHCR access. A local
+  source build succeeded using checksum-verified cached assets and the original desktop
+  services. `reports/ale-base-provenance.json` records its changes and observed ID.
+  This is a local build, not proof of the published image's digest.
+- One CORGIS production-origin ALE run passed on a prior task-script revision with a
+  host Docker proxy. Later production ALE runs timed out on this host's route to some
+  Vercel edge addresses, including a host-side `curl`. Full validation of the current
+  tasks against the production URL remains pending a stable connection. Production
+  host Chromium still completed 26 download events and matched the release hashes.
 - Networking is temporarily `open`. At this engine revision the setup browser does
   not inherit the agent-phase authenticated proxy, and CLI validation does not provide
   the oracle proxy. This is recorded in task metadata. Before benchmark admission,

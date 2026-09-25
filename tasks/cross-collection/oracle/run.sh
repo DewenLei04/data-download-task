@@ -1,3 +1,3 @@
 #!/bin/bash
 set -euo pipefail
-python3 "$ALE_STAGE_DIR/oracle.py"
+python3 "$(dirname "$0")/oracle.py"

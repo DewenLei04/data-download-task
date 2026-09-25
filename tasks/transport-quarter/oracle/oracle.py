@@ -46,7 +46,12 @@ def main():
     solution = json.loads((root / "solution.json").read_text())
     output = Path("/home/user/output")
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, args=["--disable-dev-shm-usage"])
+        proxy = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy")
+        browser = p.chromium.launch(
+            headless=False,
+            args=["--disable-dev-shm-usage"],
+            proxy={"server": proxy} if proxy else None,
+        )
         page = browser.new_page(accept_downloads=True)
         for item in solution:
             download_dataset(page, params["site_url"], item, output)

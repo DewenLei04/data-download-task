@@ -40,13 +40,17 @@ This is an integration review, not a claim of an exhaustive security audit.
 ## Initial environment observations
 
 Docker and Node were available. uv/just and ALE dependencies were installed during
-preparation. Pulling the published ALE desktop base returned `unauthorized`; local
-source build is being evaluated. No model credential was provided. Vercel deployment
-is intentionally deferred until the website is ready.
+preparation. Pulling the published ALE desktop base returned `unauthorized`. A local
+source build with verified cached downloads subsequently succeeded; its provenance is
+recorded in `reports/ale-base-provenance.json`. No model credential was provided.
 
 ## Deployment follow-up
 
 The owner subsequently authorized and completed Vercel deployment. Production
 https://data-download-task.vercel.app passed host browser download validation, and
-all seven task URLs now point there. Container/model execution remains pending;
-website deployment does not resolve the ALE image or model-configuration blockers.
+all seven task URLs now point there. ALE validated all seven tasks against the identical
+site served on the local Docker bridge: untouched rewards were zero and headed oracle
+rewards were one. One earlier-revision CORGIS task also passed against the production
+origin using a host Docker proxy. The current full task set has not passed a production
+ALE run because this host intermittently cannot reach the Vercel edge. Model-driven
+GUI execution still needs a configured model service. See `reports/ale-validation.json`.

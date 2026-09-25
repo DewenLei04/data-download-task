@@ -2,7 +2,8 @@
 
 Three reference-style synthetic data websites and seven draft ALE download tasks. The website is complete
 and deployed at https://data-download-task.vercel.app. Production browser downloads
-have been verified; model-driven ALE execution remains pending.
+have been verified. Seven tasks passed ALE container untouched/oracle validation against
+the identical site served on a local Docker bridge. Model-driven ALE execution remains pending.
 
 - **TLC Trip Record Data** — `/v1/transport`, three monthly green taxi Parquet extracts.
 - **Historical Climate Data** — `/v1/climate`, Toronto and Vancouver daily CSV exports.
@@ -39,21 +40,24 @@ browser libraries may need Playwright's browser dependency installation.
 | Check | Result |
 | --- | --- |
 | Supplied skill: v4 validation + semantic audit | 6/6 passed |
-| Website and real ALE verifier API tests | 23 passed |
+| Website, image integrity and real ALE verifier API tests | 24 passed |
 | Production Chromium clicks and downloaded-file hashes | 26 downloads passed |
 | Desktop review and mobile overflow checks | Passed |
 | ALE task lint at `04b0599` | 7 task folders passed |
-| ALE container `validate` | Blocked before execution: base image returns 401 |
+| ALE container `validate` | 7/7 passed against local bridge site (14 episodes) |
+| Production-origin ALE `validate` | CORGIS passed on an earlier task revision; full current run pending stable egress |
 | ALE model-driven GUI run | Not run; model service not configured |
 | Vercel deployment | Live; anonymous access and all six file hashes verified |
 
 The interfaces reproduce the reference sites’ page structure, colors and typography.
 See [visual references and limits](docs/visual-reference.md).
 
-Host verifier unit tests are **not** a substitute for the full ALE untouched/oracle
-pipeline. The task image, sandbox browser startup and headed oracle remain unverified
-inside ALE. All seven tasks use the production URL above. Network policy is
-an explicitly documented draft limitation, not final benchmark admission.
+The ALE result above exercised sandbox browser startup, headed oracle navigation and
+file verification against the same six release files served from the local website.
+All seven shipped tasks still use the production URL above. Full current-revision ALE
+validation against that URL is pending: this host intermittently cannot connect to its
+Vercel edge. Network policy is an explicitly documented draft limitation, not final
+benchmark admission.
 
 ## Repository layout
 
@@ -82,4 +86,5 @@ source snapshots, audit artifacts and screenshots remain local, not GitHub backu
 
 See [handoff](docs/handoff.md) for deployment, ALE setup and merging into other tasks;
 [source provenance](docs/provenance.md) for dataset generation details; and the
-[ALE integration review](docs/ale-integration-review.md) for reviewed contracts.
+[ALE integration review](docs/ale-integration-review.md) for reviewed contracts, and
+[Chinese ALE quickstart](docs/ale-quickstart.zh-CN.md) for validation commands and scope.

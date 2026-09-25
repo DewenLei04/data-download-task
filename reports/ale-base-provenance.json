@@ -1,0 +1,62 @@
+{
+  "ale_commit": "04b0599928317191ca6557847a456a70ab2d0438",
+  "source_dockerfile_sha256": "f140e3e53419d3600b2a510e4e61ef56ae1ec921b685f0fc652ecfecb41efecd",
+  "local_recipe_sha256": "7ed77219dbd556de471bc79b77ddee5e280846ce734d81d4302386a73f0495db",
+  "recipe_changes": [
+    "Bind-mount previously downloaded assets only during the three network installation steps.",
+    "Use a hash-checking curl cache adapter for declared URLs; real curl handles all other URLs.",
+    "Install the same pinned Python packages from PyPI-digest-verified wheel files."
+  ],
+  "upstream_python_sha256": "5acfa3e9ba26b51ae161c83aff278da915b590d22373a424b2ba55b8afe91fcc",
+  "upstream_node_sha256": "472655581fb851559730c48763e0c9d3bc25975c59d518003fc0849d3e4ba0f6",
+  "assets": [
+    {
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260814/cpython-3.12.14+20260814-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+      "file": "python.tar.gz",
+      "sha256": "5acfa3e9ba26b51ae161c83aff278da915b590d22373a424b2ba55b8afe91fcc"
+    },
+    {
+      "url": "https://nodejs.org/dist/v24.15.0/node-v24.15.0-linux-x64.tar.xz",
+      "file": "node.tar.xz",
+      "sha256": "472655581fb851559730c48763e0c9d3bc25975c59d518003fc0849d3e4ba0f6"
+    },
+    {
+      "url": "https://files.pythonhosted.org/packages/8d/33/e9200d2bd7ba00dc3ddb78df1198a6e80d7669cce6c2bdbeb2530a74ec58/pillow-11.3.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "file": "wheels/pillow-11.3.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "sha256": "67172f2944ebba3d4a7b54f2e95c786a3a50c21b88456329314caaa28cda70f6"
+    },
+    {
+      "url": "https://files.pythonhosted.org/packages/fc/b8/ff33610932e0ee81ae7f1269c890f697d56ff74b9f5b2ee5d9b7fa2c5355/python_xlib-0.33-py2.py3-none-any.whl",
+      "file": "wheels/python_xlib-0.33-py2.py3-none-any.whl",
+      "sha256": "c3534038d42e0df2f1392a1b30a15a4ff5fdc2b86cfa94f072bf11b10a164398"
+    },
+    {
+      "url": "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl",
+      "file": "wheels/six-1.17.0-py2.py3-none-any.whl",
+      "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"
+    },
+    {
+      "url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.12.6/cua-driver-rs-0.12.6-linux-x86_64-binary.tar.gz",
+      "file": "driver.tar.gz",
+      "sha256": "795b8464a25b036fe1a47d9cd1f560d6b4e2ab58e23630c0de3d9feff4757039"
+    },
+    {
+      "url": "https://cua.ai/driver/install.sh",
+      "file": "install.sh",
+      "sha256": "317ba3a49fdba10f2a7f1b9f392c1bc1b7657f3aae85e1e2e43684cf17a1bf3b"
+    },
+    {
+      "url": "https://cua.ai/driver/_install-rust.sh",
+      "file": "_install-rust.sh",
+      "sha256": "c3b4423dd4290f65f03579013f2c350e5a08b03458c9ae34ac4904865ec3f833"
+    }
+  ],
+  "note": "Local source build, not an authenticated pull of a published GHCR image. No TLS or package verification disabled. No ALE engine files modified.",
+  "built_image_id": "sha256:feed67defc3c0dc0b9bd30dee16771669e6c013995ee594bf8f0f7b5f2ca1b57",
+  "tag": "ghcr.io/agentslastexam/container-ubuntu22-base:latest",
+  "runtime_versions": {
+    "python": "3.12.14",
+    "node": "v24.15.0",
+    "cua_driver": "0.12.6"
+  }
+}

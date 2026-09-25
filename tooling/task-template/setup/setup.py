@@ -40,6 +40,8 @@ for root, dirs, files in os.walk(profile):
         os.chown(Path(root) / name, user.pw_uid, user.pw_gid)
 with sync_playwright() as p:
     executable = p.chromium.executable_path
+proxy = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy")
+browser_args = [f"--proxy-server={proxy}"] if proxy else []
 log = open("/tmp/task-browser.log", "ab")
 process = subprocess.Popen(
     [
@@ -56,6 +58,7 @@ process = subprocess.Popen(
         "--no-first-run",
         "--no-default-browser-check",
         "--disable-background-networking",
+        *browser_args,
         "--window-size=1280,900",
         "--start-maximized",
         f"--user-data-dir={profile}",

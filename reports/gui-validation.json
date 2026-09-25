@@ -1,6 +1,6 @@
 {
   "base_url": "https://data-download-task.vercel.app",
-  "tested_at": "2026-09-20T23:03:50.291547+00:00",
+  "tested_at": "2026-09-25T17:33:08.858639+00:00",
   "test_kind": "host Chromium GUI; not an ALE sandbox/model run",
   "passed": true,
   "datasets": [
