@@ -150,8 +150,9 @@
   "limitations": [
     "Full current-revision production ALE validation did not complete: this host and its Docker containers intermittently timed out connecting to the Vercel edge. Two climate tasks passed in the interrupted all-task attempt.",
     "ALE desktop base was built locally from source with verified cached downloads, rather than pulled from the published GHCR tag.",
-    "Three representative tasks passed real GUI model runs against production (JSON, Parquet and CSV); four composite or multi-file tasks have no model run yet.",
-    "The real model runs used a local test image with preinstalled Codex CLI 0.139.0 because npm optional executable downloads failed on this host; ALE marks local task paths not reportable."
+    "All seven tasks passed one real model GUI run against production; this is not a reliability estimate.",
+    "The real model runs used local test images with preinstalled Codex CLI 0.139.0 or official stable 0.146.0 because npm optional executable downloads failed on this host; ALE marks local task paths not reportable.",
+    "Four newer CLI runs wrapped CUA desktop calls in functions.exec, so ALE did not retain their screenshot PNG blobs; one comparison run used two read-only terminal calls after GUI navigation."
   ],
   "related_reports": [
     "gui-validation.json",

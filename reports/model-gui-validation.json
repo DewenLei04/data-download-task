@@ -1,11 +1,14 @@
 {
   "date": "2026-09-25",
   "site_url": "https://data-download-task.vercel.app",
-  "scope": "one real model episode for each of the three production website collections",
+  "scope": "one real model episode for each of all seven production website tasks",
   "agent": {
     "harness": "codex-cli",
     "model": "gpt-5.6-luna",
-    "cli_version": "0.139.0",
+    "cli_versions": [
+      "0.139.0",
+      "0.146.0"
+    ],
     "auth": "ALE checkout-local ChatGPT subscription"
   },
   "episodes": [
@@ -14,24 +17,31 @@
       "run_id": "da97294b",
       "episode_id": "corgis-airlines-a8be82c6",
       "status": "completed",
-      "duration_seconds": 118.3,
+      "model": "gpt-5.6-luna",
+      "cli_version": "0.139.0",
       "rewards": {
         "airlines_2015": 1.0,
         "overall": 1.0
       },
-      "download": {
-        "filename": "airlines-2015-v1.json",
-        "bytes": 367530,
-        "sha256": "0ef29fb59c5e34f3a1298c043021c286813b0697e3349af7baee420a210fd201"
-      },
-      "matches_task_expected": true,
-      "agent_tool_calls": {
-        "click": 7,
-        "key": 1,
+      "downloads": [
+        {
+          "filename": "airlines-2015-v1.json",
+          "bytes": 367530,
+          "sha256": "0ef29fb59c5e34f3a1298c043021c286813b0697e3349af7baee420a210fd201",
+          "matches_task_expected": true
+        }
+      ],
+      "gui_tool_calls": {
         "screenshot": 8,
-        "wait": 8
+        "click": 7,
+        "wait": 8,
+        "key": 1
       },
-      "non_gui_agent_tool_calls": 0,
+      "agent_tool_transport": "direct cua-desktop",
+      "read_only_terminal_calls": 0,
+      "other_non_gui_agent_tool_calls": 0,
+      "screenshot_images_retained_in_ale_trajectory": true,
+      "screenshot_forwarding_calls": null,
       "run_directory": "reports/runs/da97294b/corgis-airlines-a8be82c6"
     },
     {
@@ -39,26 +49,33 @@
       "run_id": "c56643a2",
       "episode_id": "transport-january-1530023a",
       "status": "completed",
-      "duration_seconds": 161.6,
+      "model": "gpt-5.6-luna",
+      "cli_version": "0.139.0",
       "rewards": {
         "green_2023_01": 1.0,
         "overall": 1.0
       },
-      "download": {
-        "filename": "green-2023-01-v1.parquet",
-        "bytes": 22799,
-        "sha256": "4ee881a97250e9249e617d3059764badfa41e0cebb6088f263007523cc60c38a"
-      },
-      "matches_task_expected": true,
-      "agent_tool_calls": {
-        "click": 5,
+      "downloads": [
+        {
+          "filename": "green-2023-01-v1.parquet",
+          "bytes": 22799,
+          "sha256": "4ee881a97250e9249e617d3059764badfa41e0cebb6088f263007523cc60c38a",
+          "matches_task_expected": true
+        }
+      ],
+      "gui_tool_calls": {
         "get_screen_size": 1,
-        "key": 1,
         "screenshot": 7,
+        "click": 5,
+        "wait": 6,
         "scroll": 1,
-        "wait": 6
+        "key": 1
       },
-      "non_gui_agent_tool_calls": 0,
+      "agent_tool_transport": "direct cua-desktop",
+      "read_only_terminal_calls": 0,
+      "other_non_gui_agent_tool_calls": 0,
+      "screenshot_images_retained_in_ale_trajectory": true,
+      "screenshot_forwarding_calls": null,
       "run_directory": "reports/runs/c56643a2/transport-january-1530023a"
     },
     {
@@ -66,40 +83,219 @@
       "run_id": "0913f431",
       "episode_id": "climate-toronto-d5446bfc",
       "status": "completed",
-      "duration_seconds": 185.9,
+      "model": "gpt-5.6-luna",
+      "cli_version": "0.139.0",
       "rewards": {
         "toronto_2023": 1.0,
         "overall": 1.0
       },
-      "download": {
-        "filename": "toronto-2023-v1.csv",
-        "bytes": 41575,
-        "sha256": "e0b58a64647ac3f7c20a2a0f80e71d772c7b736beebaa451f37a570498f4debd"
-      },
-      "matches_task_expected": true,
-      "agent_tool_calls": {
-        "click": 8,
+      "downloads": [
+        {
+          "filename": "toronto-2023-v1.csv",
+          "bytes": 41575,
+          "sha256": "e0b58a64647ac3f7c20a2a0f80e71d772c7b736beebaa451f37a570498f4debd",
+          "matches_task_expected": true
+        }
+      ],
+      "gui_tool_calls": {
         "get_screen_size": 1,
-        "key": 4,
         "screenshot": 11,
-        "scroll": 1,
+        "click": 8,
+        "wait": 10,
+        "key": 4,
         "type": 2,
-        "wait": 10
+        "scroll": 1
       },
-      "non_gui_agent_tool_calls": 0,
+      "agent_tool_transport": "direct cua-desktop",
+      "read_only_terminal_calls": 0,
+      "other_non_gui_agent_tool_calls": 0,
+      "screenshot_images_retained_in_ale_trajectory": true,
+      "screenshot_forwarding_calls": null,
       "run_directory": "reports/runs/0913f431/climate-toronto-d5446bfc"
+    },
+    {
+      "task": "transport-quarter",
+      "run_id": "8d6a3490",
+      "episode_id": "transport-quarter-8721dba4",
+      "status": "completed",
+      "model": "gpt-5.6-luna",
+      "cli_version": "0.146.0",
+      "rewards": {
+        "green_2023_01": 1.0,
+        "green_2023_02": 1.0,
+        "green_2023_03": 1.0,
+        "overall": 1.0
+      },
+      "downloads": [
+        {
+          "filename": "green-2023-01-v1.parquet",
+          "bytes": 22799,
+          "sha256": "4ee881a97250e9249e617d3059764badfa41e0cebb6088f263007523cc60c38a",
+          "matches_task_expected": true
+        },
+        {
+          "filename": "green-2023-02-v1.parquet",
+          "bytes": 16373,
+          "sha256": "b6d0b091699d28822b2dac7e0951071abc6aff6f97c7b6075d08426bbc468a85",
+          "matches_task_expected": true
+        },
+        {
+          "filename": "green-2023-03-v1.parquet",
+          "bytes": 16536,
+          "sha256": "446235f7362d8e7726d263a0fc8301c60ef2b019871c48727baed6d47a6a74c4",
+          "matches_task_expected": true
+        }
+      ],
+      "gui_tool_calls": {
+        "screenshot": 7,
+        "click": 5,
+        "wait": 6,
+        "scroll": 1,
+        "key": 1
+      },
+      "agent_tool_transport": "functions.exec wrapping cua-desktop",
+      "read_only_terminal_calls": 0,
+      "other_non_gui_agent_tool_calls": 0,
+      "screenshot_images_retained_in_ale_trajectory": false,
+      "screenshot_forwarding_calls": 7,
+      "run_directory": "reports/runs/8d6a3490/transport-quarter-8721dba4"
+    },
+    {
+      "task": "transport-comparison",
+      "run_id": "d9ac582e",
+      "episode_id": "transport-comparison-9e10a8e1",
+      "status": "completed",
+      "model": "gpt-5.6-luna",
+      "cli_version": "0.146.0",
+      "rewards": {
+        "green_2023_01": 1.0,
+        "green_2023_03": 1.0,
+        "overall": 1.0
+      },
+      "downloads": [
+        {
+          "filename": "green-2023-01-v1.parquet",
+          "bytes": 22799,
+          "sha256": "4ee881a97250e9249e617d3059764badfa41e0cebb6088f263007523cc60c38a",
+          "matches_task_expected": true
+        },
+        {
+          "filename": "green-2023-03-v1.parquet",
+          "bytes": 16536,
+          "sha256": "446235f7362d8e7726d263a0fc8301c60ef2b019871c48727baed6d47a6a74c4",
+          "matches_task_expected": true
+        }
+      ],
+      "gui_tool_calls": {
+        "screenshot": 8,
+        "wait": 8,
+        "click": 5,
+        "scroll": 1,
+        "key": 1
+      },
+      "agent_tool_transport": "functions.exec wrapping cua-desktop",
+      "read_only_terminal_calls": 2,
+      "other_non_gui_agent_tool_calls": 0,
+      "screenshot_images_retained_in_ale_trajectory": false,
+      "screenshot_forwarding_calls": 8,
+      "run_directory": "reports/runs/d9ac582e/transport-comparison-9e10a8e1"
+    },
+    {
+      "task": "climate-two-stations",
+      "run_id": "e2c73721",
+      "episode_id": "climate-two-stations-54f93f7c",
+      "status": "completed",
+      "model": "gpt-5.6-luna",
+      "cli_version": "0.146.0",
+      "rewards": {
+        "toronto_2023": 1.0,
+        "vancouver_2023": 1.0,
+        "overall": 1.0
+      },
+      "downloads": [
+        {
+          "filename": "toronto-2023-v1.csv",
+          "bytes": 41575,
+          "sha256": "e0b58a64647ac3f7c20a2a0f80e71d772c7b736beebaa451f37a570498f4debd",
+          "matches_task_expected": true
+        },
+        {
+          "filename": "vancouver-2023-v1.csv",
+          "bytes": 42211,
+          "sha256": "828a2a53eae81edf8c7d1e335e2c6cd3a1260640f3cecb35f0f11cb067668d7f",
+          "matches_task_expected": true
+        }
+      ],
+      "gui_tool_calls": {
+        "screenshot": 22,
+        "click": 10,
+        "wait": 8,
+        "type": 2,
+        "scroll": 8,
+        "key": 6,
+        "drag": 1
+      },
+      "agent_tool_transport": "functions.exec wrapping cua-desktop",
+      "read_only_terminal_calls": 0,
+      "other_non_gui_agent_tool_calls": 0,
+      "screenshot_images_retained_in_ale_trajectory": false,
+      "screenshot_forwarding_calls": 22,
+      "run_directory": "reports/runs/e2c73721/climate-two-stations-54f93f7c"
+    },
+    {
+      "task": "cross-collection",
+      "run_id": "51bdf7bc",
+      "episode_id": "cross-collection-bc16a8df",
+      "status": "completed",
+      "model": "gpt-5.6-luna",
+      "cli_version": "0.146.0",
+      "rewards": {
+        "green_2023_01": 1.0,
+        "toronto_2023": 1.0,
+        "overall": 1.0
+      },
+      "downloads": [
+        {
+          "filename": "green-2023-01-v1.parquet",
+          "bytes": 22799,
+          "sha256": "4ee881a97250e9249e617d3059764badfa41e0cebb6088f263007523cc60c38a",
+          "matches_task_expected": true
+        },
+        {
+          "filename": "toronto-2023-v1.csv",
+          "bytes": 41575,
+          "sha256": "e0b58a64647ac3f7c20a2a0f80e71d772c7b736beebaa451f37a570498f4debd",
+          "matches_task_expected": true
+        }
+      ],
+      "gui_tool_calls": {
+        "screenshot": 23,
+        "wait": 12,
+        "click": 11,
+        "scroll": 10,
+        "key": 1,
+        "type": 1
+      },
+      "agent_tool_transport": "functions.exec wrapping cua-desktop",
+      "read_only_terminal_calls": 0,
+      "other_non_gui_agent_tool_calls": 0,
+      "screenshot_images_retained_in_ale_trajectory": false,
+      "screenshot_forwarding_calls": 23,
+      "run_directory": "reports/runs/51bdf7bc/cross-collection-bc16a8df"
     }
   ],
-  "all_three_passed": true,
+  "all_seven_passed": true,
+  "gui_evidence_note": "All four new runs called cua-desktop screenshot/click and forwarded screenshots via the functions.exec image helper. ALE trajectory parsing records the outer functions.exec calls, but does not retain nested PNG blobs in these four runs. The transport-comparison agent additionally used two read-only terminal calls (ls/find) after GUI interaction; no terminal or direct HTTP call was used to obtain files.",
   "provenance": {
     "task_source": "ignored local copies of published tasks, with identical production site_url, instruction, verifier and expected files",
-    "image": "local test image with Openbox and preinstalled host Codex CLI 0.139.0, based on a locally built ALE desktop image",
+    "image": "local test images with Openbox and an official Codex CLI binary preinstalled, based on a locally built ALE desktop image",
     "reportable": false,
     "reportability_reason": "ALE local task paths cannot be re-fetched for a reportable RunLock"
   },
   "limits": [
-    "The remaining four multi-file or cross-collection tasks have no model run yet; all seven passed untouched/oracle validation.",
-    "The test-only image is local and is not included in the Git repository.",
-    "The ALE gateway encountered intermittent upstream TLS stream errors; all three episodes completed and were scored."
+    "One successful model episode per task is evidence of feasibility, not a reliability estimate.",
+    "Task verifier checks downloaded file bytes and does not automatically enforce GUI-only behavior.",
+    "Test-only image is local and is not included in the Git repository.",
+    "ALE gateway encountered intermittent upstream TLS stream errors; all seven scored episodes completed."
   ]
 }

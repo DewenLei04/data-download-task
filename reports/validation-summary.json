@@ -96,11 +96,15 @@
     "report": "ale-validation.json"
   },
   "model_gui": {
-    "status": "three_representative_tasks_passed",
+    "status": "all_seven_tasks_passed_one_model_episode_each",
     "tasks": [
       "corgis-airlines",
       "transport-january",
-      "climate-toronto"
+      "climate-toronto",
+      "transport-quarter",
+      "transport-comparison",
+      "climate-two-stations",
+      "cross-collection"
     ],
     "formats": [
       "JSON",
@@ -109,9 +113,15 @@
     ],
     "model": "gpt-5.6-luna",
     "all_download_hashes_match": true,
-    "non_gui_agent_tool_calls": 0,
     "report": "model-gui-validation.json",
-    "reportable": false
+    "reportable": false,
+    "cli_versions": [
+      "0.139.0",
+      "0.146.0"
+    ],
+    "requested_files_verified": 12,
+    "read_only_terminal_calls_after_gui": 2,
+    "gui_evidence_note": "All seven downloads used CUA navigation; newer four runs have no retained screenshot PNG blobs in ALE trajectory."
   },
   "vercel": {
     "status": "deployed_and_verified",

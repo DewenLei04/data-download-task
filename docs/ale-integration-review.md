@@ -54,6 +54,8 @@ bridge: untouched rewards were zero and headed oracle rewards were one. An earli
 CORGIS image revision also passed a direct production-origin reference run. The
 current full task set has not passed a production-origin reference run because this
 host intermittently cannot reach the Vercel edge. The owner later completed ALE's
-checkout-local ChatGPT subscription login, and real `gpt-5.6-luna` GUI runs downloaded
-the JSON, Parquet and CSV files from the production website with full scores and
-matching hashes. See `reports/ale-validation.json` and `reports/model-gui-validation.json`.
+checkout-local ChatGPT subscription login, and seven real `gpt-5.6-luna` runs
+downloaded all requested JSON, Parquet and CSV files from the production website
+through its visible browser interface, with full scores and matching hashes. One
+run included two read-only terminal checks after the GUI downloads. See
+`reports/ale-validation.json` and `reports/model-gui-validation.json`.

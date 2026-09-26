@@ -99,20 +99,23 @@ address as the production task URL.
   case but timed out loading the production page in the oracle. This host's route to
   some Vercel edge addresses is intermittent. Full production-origin reference
   validation remains pending a stable connection. Production host Chromium completed
-  26 download events, and three real model GUI runs against production passed.
+  26 download events, and seven real model GUI runs against production passed.
 - Networking is temporarily `open`. At this engine revision the setup browser does
   not inherit the agent-phase authenticated proxy, and CLI validation does not provide
   the oracle proxy. This is recorded in task metadata. Before benchmark admission,
   adapt the runner/browser proxy flow and verify an allowlist for the hosted origin,
   or have the benchmark owner explicitly accept the open-network task design.
-- ALE checkout-local ChatGPT subscription login is configured on this host. Three real
-  `gpt-5.6-luna` / Codex CLI GUI episodes completed against the production CORGIS,
-  TLC and climate pages: each overall reward is 1.0, all JSON/Parquet/CSV hashes
-  match, and every agent tool call used CUA. See `reports/model-gui-validation.json`.
-  The remaining four multi-file or cross-collection tasks have no model run yet.
+- ALE checkout-local ChatGPT subscription login is configured on this host. Seven real
+  `gpt-5.6-luna` / Codex CLI episodes completed against the production CORGIS, TLC
+  and climate pages: each overall reward is 1.0 and all 12 requested files match.
+  Navigation and downloads used CUA desktop tools; one comparison run also used two
+  read-only terminal checks after browser interaction. Four newer runs wrap CUA calls
+  in `functions.exec`; ALE did not retain their screenshot PNG blobs. See
+  `reports/model-gui-validation.json`.
   This local-path result is not reportable as a re-fetchable benchmark RunLock.
-- This host repeatedly lost the npm Linux Codex executable download, so that model
-  episode used a test-only local image with preinstalled Codex CLI 0.139.0. The local
+- This host repeatedly lost the npm Linux Codex executable download, so model
+  episodes used test-only local images with preinstalled Codex CLI 0.139.0 and
+  official stable release 0.146.0. The local
   ALE base's GNOME desktop layer obscured application windows; Openbox resolved that
   in screenshot preflight and is now installed and started by all seven task images.
   The task setup also starts Cua Driver before the agent begins. Exact commands and

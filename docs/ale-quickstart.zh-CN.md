@@ -76,15 +76,18 @@ uv run ale run ../data-download-task/tasks/corgis-airlines \
 agent 使用了 GUI。七个任务的镜像会安装 Openbox，任务启动时会切换窗口管理器
 并启动桌面驱动；本机源码构建的 ALE 基础镜像里，原 GNOME 桌面层曾遮挡浏览器。
 
-2026-09-25 已完成三个真正的模型回合：`gpt-5.6-luna` 通过 Codex CLI
-`0.139.0` 分别在生产网站下载 CORGIS JSON、TLC Parquet 和气候 CSV，三次
-ALE 评分均为 `1.0`，产物 SHA-256 全部匹配。轨迹只包含桌面工具调用。
+2026-09-25 已完成七个真正的模型回合：`gpt-5.6-luna` 通过 Codex CLI
+`0.139.0`（三个单文件任务）和 `0.146.0`（四个多文件任务）在生产网站下载，
+七次 ALE 评分均为 `1.0`，共 12 个所需文件的 SHA-256 全部匹配。模型通过
+可见桌面截图、点击、滚动和输入导航下载；`transport-comparison` 回合另有两次
+只读终端文件检查，未通过终端获取数据。新版 CLI 将桌面工具包在
+`functions.exec` 中，ALE 轨迹未保留其中的 PNG；其余三个旧版回合保留了截图。
 详细结果见
 [`model-gui-validation.json`](../reports/model-gui-validation.json)。这些回合使用了
 与公开任务同指令、同验证规则的本地临时任务副本；由于本机从 npm
-下载 Codex Linux 可执行组件反复失败，临时镜像预装了本机 CLI。
-这证明三个网站各有一次 GUI 模型回合成功，但 ALE 将本地路径标记为不可作为
-可重新获取的正式 benchmark 结果。剩余四个多文件或跨站任务尚未运行模型。
+下载 Codex Linux 可执行组件反复失败，临时镜像预装了本机 CLI 和从 OpenAI
+官方发布获取的稳定版 CLI。七道任务各有一次真实模型回合成功，但 ALE 将本地
+路径标记为不可作为可重新获取的正式 benchmark 结果。
 
 ## 使用其他模型服务
 

@@ -3,8 +3,8 @@
 Three reference-style synthetic data websites and seven draft ALE download tasks. The website is complete
 and deployed at https://data-download-task.vercel.app. Production browser downloads
 have been verified. Seven tasks passed ALE container untouched/oracle validation against
-the identical site served on a local Docker bridge. Real ALE GUI agents completed one
-production download from each website (JSON, Parquet and CSV).
+the identical site served on a local Docker bridge. A real ALE model run completed
+each of the seven tasks against the production website.
 
 - **TLC Trip Record Data** — `/v1/transport`, three monthly green taxi Parquet extracts.
 - **Historical Climate Data** — `/v1/climate`, Toronto and Vancouver daily CSV exports.
@@ -47,7 +47,7 @@ browser libraries may need Playwright's browser dependency installation.
 | ALE task lint at `04b0599` | 7 task folders passed |
 | ALE container `validate` | 7/7 passed against local bridge site (14 episodes) |
 | Production-origin ALE `validate` | Earlier CORGIS image revision passed; updated reference run timed out on this host's Vercel route |
-| ALE model-driven GUI run | 3/3 representative tasks passed against production, with exact hashes and GUI-only tool calls |
+| ALE model-driven GUI run | 7/7 tasks passed against production; 12 requested files matched exact hashes |
 | Vercel deployment | Live; anonymous access and all six file hashes verified |
 
 The interfaces reproduce the reference sites’ page structure, colors and typography.
@@ -58,9 +58,11 @@ file verification against the same six release files served from the local websi
 All seven shipped tasks still use the production URL above. Full current-revision ALE
 validation against that URL is pending: this host intermittently cannot connect to its
 Vercel edge. Network policy is an explicitly documented draft limitation, not final
-benchmark admission. The three real model runs used a local test image with a
-preinstalled Codex CLI because npm native-binary downloads failed on this host; ALE
-marks local task paths as non-reportable. See the
+benchmark admission. The seven real model runs used local test images with
+preinstalled Codex CLI 0.139.0 or 0.146.0 because npm native-binary downloads failed
+on this host. ALE marks local task paths as non-reportable. The model navigated and
+downloaded through the visible GUI; one run also used two read-only terminal checks
+after the GUI interaction. See the
 [model run report](reports/model-gui-validation.json) for the exact evidence and scope.
 
 ## Repository layout
