@@ -93,4 +93,5 @@ source snapshots, audit artifacts and screenshots remain local, not GitHub backu
 See [handoff](docs/handoff.md) for deployment, ALE setup and merging into other tasks;
 [source provenance](docs/provenance.md) for dataset generation details; and the
 [ALE integration review](docs/ale-integration-review.md) for reviewed contracts, and
-[ALE quickstart](docs/ale-quickstart.md) for validation commands and scope.
+[ALE quickstart](docs/ale-quickstart.md) ([Chinese version](docs/ale-quickstart.zh-CN.md))
+for validation commands and scope.
