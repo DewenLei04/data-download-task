@@ -119,7 +119,7 @@ address as the production task URL.
   ALE base's GNOME desktop layer obscured application windows; Openbox resolved that
   in screenshot preflight and is now installed and started by all seven task images.
   The task setup also starts Cua Driver before the agent begins. Exact commands and
-  GUI evidence checks are in `docs/ale-quickstart.zh-CN.md`.
+  GUI evidence checks are in `docs/ale-quickstart.md`.
 - Alternatively, use a computer-use-compatible Anthropic-messages endpoint and its
   supported model (do not invent a model name):
 
